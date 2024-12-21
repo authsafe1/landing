@@ -39,7 +39,7 @@ const Homepage = () => {
             <Box sx={{ display: 'flex', gap: 2 }}>
               <Button size="small">Register</Button>
               <Button variant="contained" size="small">
-                Sign in
+                Login
               </Button>
             </Box>
           </Box>
@@ -96,7 +96,7 @@ const Homepage = () => {
                   action={(formData) => {
                     const email = formData.get('email');
                     window.location.replace(
-                      `https://google.com?email=${email}`,
+                      `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register?email=${email}`,
                     );
                   }}
                   sx={{
@@ -136,7 +136,7 @@ const Homepage = () => {
                     action={(formData) => {
                       const email = formData.get('email');
                       window.location.replace(
-                        `https://google.com?email=${email}`,
+                        `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register?email=${email}`,
                       );
                     }}
                     variant="outlined"
@@ -234,7 +234,7 @@ const Homepage = () => {
                 fontWeight={500}
                 gutterBottom
               >
-                Secure Your Application with OAuth 2.0
+                Secure Your Application with AuthSafe
               </Typography>
               <Typography fontSize={isMobile ? 'medium' : 'large'} gutterBottom>
                 OAuth 2.0 and OpenID Connect provide powerful frameworks to
