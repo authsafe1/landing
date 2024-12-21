@@ -69,6 +69,7 @@ export const metadata: Metadata = {
     },
   },
   manifest: '/site.webmanifest',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
 };
 
 export default function RootLayout({
