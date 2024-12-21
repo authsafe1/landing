@@ -1,7 +1,7 @@
 import { theme } from '@/config/theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
 import { ReactNode } from 'react';
 
@@ -70,6 +70,13 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fff' },
+    { media: '(prefers-color-scheme: dark)', color: '#121212' },
+  ],
 };
 
 export default function RootLayout({
