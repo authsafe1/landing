@@ -24,6 +24,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
+import Link from 'next/link';
 
 const Homepage = () => {
   const theme = useTheme();
@@ -38,7 +39,7 @@ const Homepage = () => {
             <Box sx={{ display: 'flex', gap: 2 }}>
               <Button size="small">Register</Button>
               <Button variant="contained" size="small">
-                Sign in
+                Login
               </Button>
             </Box>
           </Box>
@@ -95,7 +96,7 @@ const Homepage = () => {
                   action={(formData) => {
                     const email = formData.get('email');
                     window.location.replace(
-                      `https://google.com?email=${email}`,
+                      `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register?email=${email}`,
                     );
                   }}
                   sx={{
@@ -135,7 +136,7 @@ const Homepage = () => {
                     action={(formData) => {
                       const email = formData.get('email');
                       window.location.replace(
-                        `https://google.com?email=${email}`,
+                        `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register?email=${email}`,
                       );
                     }}
                     variant="outlined"
@@ -233,7 +234,7 @@ const Homepage = () => {
                 fontWeight={500}
                 gutterBottom
               >
-                Secure Your Application with OAuth 2.0
+                Secure Your Application with AuthSafe
               </Typography>
               <Typography fontSize={isMobile ? 'medium' : 'large'} gutterBottom>
                 OAuth 2.0 and OpenID Connect provide powerful frameworks to
@@ -540,10 +541,13 @@ const Homepage = () => {
               <Typography variant="body2" fontWeight="bold">
                 Developer
               </Typography>
-              <MuiLink color="text.secondary" href="dashboard">
+              <MuiLink
+                color="text.secondary"
+                href={process.env.NEXT_PUBLIC_DASHBOARD_URL}
+              >
                 Dashboard
               </MuiLink>
-              <MuiLink color="text.secondary" href="docs">
+              <MuiLink color="text.secondary" href="/docs">
                 Documentation
               </MuiLink>
             </Stack>
@@ -551,13 +555,25 @@ const Homepage = () => {
               <Typography variant="body2" fontWeight="bold">
                 Legal
               </Typography>
-              <MuiLink color="text.secondary" href="/policy/privacy">
+              <MuiLink
+                component={Link}
+                color="text.secondary"
+                href="/policy/privacy"
+              >
                 Privacy
               </MuiLink>
-              <MuiLink color="text.secondary" href="/policy/cookie">
+              <MuiLink
+                component={Link}
+                color="text.secondary"
+                href="/policy/cookie"
+              >
                 Cookies
               </MuiLink>
-              <MuiLink color="text.secondary" href="/policy/compliance">
+              <MuiLink
+                component={Link}
+                color="text.secondary"
+                href="/policy/compliance"
+              >
                 Compliance
               </MuiLink>
             </Stack>

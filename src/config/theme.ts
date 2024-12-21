@@ -33,6 +33,9 @@ export const theme = createTheme({
     },
     light: {
       palette: {
+        background: {
+          default: '#fff',
+        },
         primary: {
           main: brand[400],
         },
@@ -42,6 +45,7 @@ export const theme = createTheme({
       },
     },
   },
+  cssVariables: true,
   typography: {
     fontFamily: 'var(--font-roboto)',
   },
