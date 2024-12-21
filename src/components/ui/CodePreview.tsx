@@ -173,7 +173,7 @@ const CodePreview: FC = () => {
           </Tabs>
         </Grid>
         <Grid width="100%">
-          <Box sx={{ overflow: 'auto' }}>
+          <Box sx={{ overflow: 'auto', p: 1 }}>
             <pre>
               <code
                 dangerouslySetInnerHTML={{ __html: highlightedCode.value }}
