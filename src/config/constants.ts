@@ -1,28 +1,21 @@
 import {
-  Apps,
-  Badge,
-  BarChart,
-  Bolt,
   Business,
   Code,
   Construction,
+  ContactSupport,
   Cookie,
+  Create,
   HelpOutline,
-  History,
   Home,
   HourglassTop,
+  Info,
   IntegrationInstructions,
-  LockPerson,
-  Login,
   MenuBook,
   MonetizationOn,
-  Person,
   PlayArrow,
   School,
   Shield,
   Storage,
-  Verified,
-  Webhook,
 } from '@mui/icons-material';
 
 const constants = {
@@ -64,6 +57,28 @@ const constants = {
       Icon: Business,
     },
   ],
+  headerData: {
+    companyDropdown: [
+      {
+        header: 'About',
+        subHeader: 'Know about AuthSafe',
+        Icon: Info,
+        url: '/about',
+      },
+      {
+        header: 'Blog',
+        subHeader: 'Latest news and updates',
+        Icon: Create,
+        url: '/blog',
+      },
+      {
+        header: 'Contact',
+        subHeader: 'Contact us for help',
+        Icon: ContactSupport,
+        url: '/contact',
+      },
+    ],
+  },
   faq: [
     {
       title: 'What is AuthSafe, and how does it work?',
@@ -116,115 +131,6 @@ const constants = {
       title: 'How can I get started with AuthSafe?',
       summary:
         'Sign up, follow our documentation, and integrate AuthSafe with your app.',
-    },
-  ],
-  navigation: [
-    {
-      subheader: 'Overview',
-      routes: [
-        { to: '/dashboard', text: 'Quick Start', Icon: Bolt },
-        { to: '/dashboard/insights', text: 'Insights', Icon: BarChart },
-      ],
-    },
-    {
-      subheader: 'Users and Applications',
-      routes: [
-        { to: '/dashboard/users', text: 'Users', Icon: Person },
-        { to: '/dashboard/applications', text: 'Applications', Icon: Apps },
-      ],
-    },
-    {
-      subheader: 'Access Management',
-      routes: [
-        { to: '/dashboard/roles', text: 'Roles', Icon: Badge },
-        { to: '/dashboard/permissions', text: 'Permissions', Icon: Verified },
-      ],
-    },
-    {
-      subheader: 'Branding & Customization',
-      routes: [
-        {
-          to: '/dashboard/branding/login',
-          text: 'Login',
-          Icon: Login,
-        },
-        // {
-        //   to: "/dashboard/branding/email",
-        //   text: "Email",
-        //   Icon: Email,
-        // },
-      ],
-    },
-    {
-      subheader: 'Developers',
-      routes: [
-        {
-          to: '/dashboard/webhooks',
-          text: 'Webhooks',
-          Icon: Webhook,
-        },
-      ],
-    },
-    {
-      subheader: 'Analytics and Monitoring',
-      routes: [
-        { to: '/dashboard/log/activity', text: 'Activity Logs', Icon: History },
-        {
-          to: '/dashboard/log/authorization',
-          text: 'Authorization Logs',
-          Icon: LockPerson,
-        },
-        { to: '/dashboard/log/security', text: 'Security Logs', Icon: Shield },
-      ],
-    },
-    // {
-    //   subheader: "Plan",
-    //   routes: [
-    //     { to: "/dashboard/plan/billing", text: "Billing", Icon: CreditCard },
-    //   ],
-    // },
-  ],
-  billingTiers: [
-    {
-      title: 'Free',
-      subtitle: 'Everything you need to get started',
-      totalPrice: '0',
-      description: [
-        '10,000 monthly active users',
-        '100 permission and 10 roles',
-        'Email-password authentication',
-        'Community support',
-      ],
-      buttonText: 'Continue as Free',
-      priceId: '',
-    },
-    {
-      title: 'Professional',
-      subtitle: 'Powerful features for growing teams',
-      subheader: 'Recommended',
-      totalPrice: '1999',
-      description: [
-        'Up to 100,000 users',
-        'Social login integration',
-        '1000 permissions and 100 roles',
-        'Remove AuthSafe branding',
-        'Email support with 24-hour response',
-      ],
-      buttonText: 'Upgrade to Professional',
-      priceId: '',
-    },
-    {
-      title: 'Enterprise',
-      subtitle: 'Custom-tailored for large organizations',
-      totalPrice: '7999',
-      description: [
-        'Unlimited users',
-        'SSO support',
-        'Unlimited roles and permissions',
-        '24/7 priority support',
-      ],
-      buttonText: 'Upgrade to Enterprise',
-      priceId: '',
     },
   ],
   docNavigation: [
