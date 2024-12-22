@@ -5,11 +5,11 @@ import {
   BackgroundWrapper,
   CodePreview,
   FAQ,
+  Header,
   IconWrapper,
 } from '@/components';
 import constants from '@/config/constants';
 import {
-  AppBar,
   Box,
   Button,
   Container,
@@ -19,7 +19,6 @@ import {
   Link as MuiLink,
   Paper,
   Stack,
-  Toolbar,
   Typography,
   useMediaQuery,
   useTheme,
@@ -32,19 +31,7 @@ const Homepage = () => {
 
   return (
     <main>
-      <AppBar position="relative" color="transparent" elevation={0}>
-        <Toolbar>
-          <Box flex={1} />
-          <Box>
-            <Box sx={{ display: 'flex', gap: 2 }}>
-              <Button size="small">Register</Button>
-              <Button variant="contained" size="small">
-                Login
-              </Button>
-            </Box>
-          </Box>
-        </Toolbar>
-      </AppBar>
+      <Header />
       <Container component="section" maxWidth={false}>
         <BackgroundWrapper id="highlight">
           <Grid container rowSpacing={6} p={4}>
@@ -176,8 +163,8 @@ const Homepage = () => {
             (max-width: 1200px) 750px,
             1000px
           "
-                alt="Dashboard Preview"
-                loading="lazy"
+                alt="AuthSafe dashboard Preview"
+                loading="eager"
                 sx={{
                   width: {
                     xs: '500px',
@@ -243,6 +230,22 @@ const Homepage = () => {
                 user satisfaction while adhering to the highest security
                 standards.
               </Typography>
+              {isMobile ? (
+                <Box
+                  component="img"
+                  src={
+                    theme.palette.mode === 'dark'
+                      ? '/images/flow-dark.svg'
+                      : '/images/flow-light.svg'
+                  }
+                  alt="OAuth 2.0 flow diagram"
+                  loading="lazy"
+                  sx={{
+                    width: '100%',
+                    height: 'auto',
+                  }}
+                />
+              ) : null}
               <ul>
                 <li>
                   <strong>Universal Login:</strong> Enable a seamless user login
@@ -267,34 +270,41 @@ const Homepage = () => {
                   bases without compromising performance.
                 </li>
               </ul>
-              <Button size="large" variant="contained" sx={{ mt: 4 }}>
+
+              <Button
+                size="large"
+                variant="contained"
+                sx={{ mt: 4 }}
+                LinkComponent={Link}
+                href="/contact"
+              >
                 Contact Us
               </Button>
             </Grid>
-            <Grid
-              size={{ xs: 12, md: 6 }}
-              textAlign="center"
-              sx={{ mt: isMobile ? 4 : 0 }}
-            >
-              <Box
-                component="img"
-                src={
-                  theme.palette.mode === 'dark'
-                    ? '/images/flow-dark.svg'
-                    : '/images/flow-light.svg'
-                }
-                alt="Dashboard Preview"
-                loading="lazy"
-                sx={{
-                  width: {
-                    xs: '500px',
-                    sm: '400px',
-                    xl: '750px',
-                  },
-                  height: 'auto',
-                }}
-              />
-            </Grid>
+            {!isMobile ? (
+              <Grid
+                size={{ xs: 12, md: 6 }}
+                display="flex"
+                textAlign="center"
+                alignItems="center"
+                sx={{ mt: isMobile ? 4 : 0 }}
+              >
+                <Box
+                  component="img"
+                  src={
+                    theme.palette.mode === 'dark'
+                      ? '/images/flow-dark.svg'
+                      : '/images/flow-light.svg'
+                  }
+                  alt="OAuth 2.0 flow diagram"
+                  loading="lazy"
+                  sx={{
+                    width: '100%',
+                    height: 'auto',
+                  }}
+                />
+              </Grid>
+            ) : null}
           </Grid>
         </Paper>
       </Container>
@@ -500,7 +510,8 @@ const Homepage = () => {
       <Divider sx={{ mb: 3 }} />
 
       <Container component="footer" sx={{ py: 5 }} id="footer">
-        <Box
+        <Grid
+          container
           sx={(theme) => ({
             display: 'flex',
             justifyContent: 'space-between',
@@ -510,75 +521,101 @@ const Homepage = () => {
             },
           })}
         >
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Grid sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <AuthSafeIcon theme={theme.palette.mode} fontSize="large" />
             <Typography variant="h5" fontWeight="bold">
               AuthSafe
             </Typography>
-          </Box>
-          <Box sx={{ display: 'flex', gap: 4 }}>
-            <Stack spacing={1}>
-              <Typography variant="body2" fontWeight="bold">
-                Product
-              </Typography>
-              <MuiLink color="text.secondary" href="#highlight">
-                Highlight
-              </MuiLink>
-              <MuiLink color="text.secondary" href="#feature">
-                Feature
-              </MuiLink>
-              <MuiLink color="text.secondary" href="#integration">
-                Integration
-              </MuiLink>
-              {/* <MuiLink color="text.secondary" href="#pricing">
+          </Grid>
+          <Grid container spacing={4}>
+            <Grid>
+              <Stack spacing={1}>
+                <Typography variant="body2" fontWeight="bold">
+                  Product
+                </Typography>
+                <MuiLink color="text.secondary" href="#highlight">
+                  Highlight
+                </MuiLink>
+                <MuiLink color="text.secondary" href="#feature">
+                  Feature
+                </MuiLink>
+                <MuiLink color="text.secondary" href="#integration">
+                  Integration
+                </MuiLink>
+                {/* <MuiLink color="text.secondary" href="#pricing">
                 Pricing
               </MuiLink> */}
-              <MuiLink color="text.secondary" href="#faq">
-                FAQ
-              </MuiLink>
-            </Stack>
-            <Stack spacing={1}>
-              <Typography variant="body2" fontWeight="bold">
-                Developer
-              </Typography>
-              <MuiLink
-                color="text.secondary"
-                href={process.env.NEXT_PUBLIC_DASHBOARD_URL}
-              >
-                Dashboard
-              </MuiLink>
-              <MuiLink color="text.secondary" href="/docs">
-                Documentation
-              </MuiLink>
-            </Stack>
-            <Stack spacing={1}>
-              <Typography variant="body2" fontWeight="bold">
-                Legal
-              </Typography>
-              <MuiLink
-                component={Link}
-                color="text.secondary"
-                href="/policy/privacy"
-              >
-                Privacy
-              </MuiLink>
-              <MuiLink
-                component={Link}
-                color="text.secondary"
-                href="/policy/cookie"
-              >
-                Cookies
-              </MuiLink>
-              <MuiLink
-                component={Link}
-                color="text.secondary"
-                href="/policy/compliance"
-              >
-                Compliance
-              </MuiLink>
-            </Stack>
-          </Box>
-        </Box>
+                <MuiLink color="text.secondary" href="#faq">
+                  FAQ
+                </MuiLink>
+              </Stack>
+            </Grid>
+            <Grid>
+              <Stack spacing={1}>
+                <Typography variant="body2" fontWeight="bold">
+                  Company
+                </Typography>
+                <MuiLink component={Link} color="text.secondary" href="/about">
+                  About
+                </MuiLink>
+                <MuiLink component={Link} color="text.secondary" href="/blog">
+                  Blog
+                </MuiLink>
+                <MuiLink
+                  component={Link}
+                  color="text.secondary"
+                  href="/contact"
+                >
+                  Contact
+                </MuiLink>
+              </Stack>
+            </Grid>
+            <Grid>
+              <Stack spacing={1}>
+                <Typography variant="body2" fontWeight="bold">
+                  Developer
+                </Typography>
+                <MuiLink
+                  color="text.secondary"
+                  href={process.env.NEXT_PUBLIC_DASHBOARD_URL}
+                >
+                  Dashboard
+                </MuiLink>
+                <MuiLink color="text.secondary" href="/docs">
+                  Documentation
+                </MuiLink>
+              </Stack>
+            </Grid>
+            <Grid>
+              <Stack spacing={1}>
+                <Typography variant="body2" fontWeight="bold">
+                  Legal
+                </Typography>
+                <MuiLink
+                  component={Link}
+                  color="text.secondary"
+                  href="/policy/privacy"
+                >
+                  Privacy
+                </MuiLink>
+                <MuiLink
+                  component={Link}
+                  color="text.secondary"
+                  href="/policy/cookie"
+                >
+                  Cookies
+                </MuiLink>
+                <MuiLink
+                  component={Link}
+                  color="text.secondary"
+                  href="/policy/compliance"
+                >
+                  Compliance
+                </MuiLink>
+              </Stack>
+            </Grid>
+          </Grid>
+        </Grid>
         <Divider sx={{ mt: 3, mb: 2 }} />
         <Typography variant="body2" color="text.secondary" align="center">
           {`© ${new Date().getFullYear()} AuthSafe. All rights reserved.`}
