@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  Box,
   Container,
   Divider,
   Grid2 as Grid,
@@ -10,15 +11,15 @@ import {
   useTheme,
 } from '@mui/material';
 import Link from 'next/link';
-import { FC, Fragment } from 'react';
+import { FC } from 'react';
 import AuthSafeIcon from '../icons/AuthSafeIcon';
 
 const Footer: FC = () => {
   const theme = useTheme();
   return (
-    <Fragment>
+    <Box component="footer" id="footer">
       <Divider sx={{ mb: 3 }} />
-      <Container component="footer" sx={{ py: 5 }} id="footer">
+      <Container sx={{ py: 5 }}>
         <Grid
           container
           sx={(theme) => ({
@@ -42,13 +43,25 @@ const Footer: FC = () => {
                 <Typography variant="body2" fontWeight="bold">
                   Product
                 </Typography>
-                <MuiLink color="text.secondary" href="#highlight">
+                <MuiLink
+                  color="text.secondary"
+                  component={Link}
+                  href="/#highlight"
+                >
                   Highlight
                 </MuiLink>
-                <MuiLink color="text.secondary" href="#feature">
+                <MuiLink
+                  color="text.secondary"
+                  component={Link}
+                  href="/#feature"
+                >
                   Feature
                 </MuiLink>
-                <MuiLink color="text.secondary" href="#integration">
+                <MuiLink
+                  color="text.secondary"
+                  component={Link}
+                  href="#integration"
+                >
                   Integration
                 </MuiLink>
                 <MuiLink
@@ -58,7 +71,7 @@ const Footer: FC = () => {
                 >
                   Pricing
                 </MuiLink>
-                <MuiLink color="text.secondary" href="#faq">
+                <MuiLink color="text.secondary" component={Link} href="/#faq">
                   FAQ
                 </MuiLink>
               </Stack>
@@ -94,7 +107,7 @@ const Footer: FC = () => {
                 >
                   Dashboard
                 </MuiLink>
-                <MuiLink color="text.secondary" href="/docs">
+                <MuiLink color="text.secondary" component={Link} href="/docs">
                   Documentation
                 </MuiLink>
               </Stack>
@@ -134,7 +147,7 @@ const Footer: FC = () => {
           {`© ${new Date().getFullYear()} AuthSafe. All rights reserved.`}
         </Typography>
       </Container>
-    </Fragment>
+    </Box>
   );
 };
 
