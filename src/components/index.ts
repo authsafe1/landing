@@ -7,6 +7,7 @@ import FAQ from './ui/FAQ';
 import Footer from './ui/Footer';
 import Header from './ui/Header';
 import Loader from './ui/Loader';
+import SupportPageFade from './ui/SupportPageFade';
 
 export {
   AuthSafeIcon,
@@ -18,4 +19,5 @@ export {
   Header,
   IconWrapper,
   Loader,
+  SupportPageFade,
 };
