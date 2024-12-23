@@ -1,4 +1,6 @@
 import {
+  ArrowDropDown,
+  Book,
   Business,
   Code,
   Construction,
@@ -13,6 +15,7 @@ import {
   MenuBook,
   MonetizationOn,
   PlayArrow,
+  PriceChange,
   School,
   Shield,
   Storage,
@@ -58,22 +61,76 @@ const constants = {
     },
   ],
   headerData: {
-    companyDropdown: [
+    desktop: {
+      static: [
+        {
+          header: 'Docs',
+          url: '/docs',
+          hasDropdown: false,
+          EndIcon: null,
+        },
+        {
+          header: 'Pricing',
+          url: '/pricing',
+          hasDropdown: false,
+          EndIcon: null,
+        },
+        {
+          header: 'Company',
+          url: null,
+          hasDropdown: true,
+          EndIcon: ArrowDropDown,
+        },
+      ],
+      dropdown: [
+        {
+          header: 'About',
+          subHeader: 'Know about AuthSafe',
+          Icon: Info,
+          url: '/about',
+        },
+        {
+          header: 'Blog',
+          subHeader: 'Latest news and updates',
+          Icon: Create,
+          url: '/blog',
+        },
+        {
+          header: 'Contact',
+          subHeader: 'Contact us for help',
+          Icon: ContactSupport,
+          url: '/contact',
+        },
+      ],
+    },
+    mobile: [
+      {
+        header: 'Home',
+        Icon: Home,
+        url: '/',
+      },
       {
         header: 'About',
-        subHeader: 'Know about AuthSafe',
         Icon: Info,
         url: '/about',
       },
       {
+        header: 'Docs',
+        Icon: Book,
+        url: '/docs',
+      },
+      {
         header: 'Blog',
-        subHeader: 'Latest news and updates',
         Icon: Create,
         url: '/blog',
       },
       {
+        header: 'Pricing',
+        Icon: PriceChange,
+        url: '/pricing',
+      },
+      {
         header: 'Contact',
-        subHeader: 'Contact us for help',
         Icon: ContactSupport,
         url: '/contact',
       },
@@ -213,7 +270,7 @@ const constants = {
       buttonText: 'Sign Up for free',
       buttonVariant: 'outlined',
       buttonColor: 'primary',
-      redirectUrl: '/dashboard/plan/billing?plan=free',
+      redirectUrl: '/billing?plan=free',
     },
     {
       title: 'Professional',
@@ -227,10 +284,10 @@ const constants = {
         'Remove AuthSafe branding',
         'Email support with 24-hour response',
       ],
-      buttonText: 'Start Now',
+      buttonText: 'Upgrade to Pro',
       buttonVariant: 'contained',
       buttonColor: 'primary',
-      redirectUrl: '/dashboard/plan/billing?plan=professional',
+      redirectUrl: '/billing?plan=professional',
     },
     {
       title: 'Enterprise',
@@ -245,7 +302,7 @@ const constants = {
       buttonText: 'Contact Us',
       buttonVariant: 'outlined',
       buttonColor: 'primary',
-      redirectUrl: '/dashboard/plan/billing?plan=enterprise',
+      redirectUrl: '/billing?plan=enterprise',
     },
   ],
   authExamples: {
