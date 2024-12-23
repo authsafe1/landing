@@ -34,8 +34,7 @@ const Pricing = () => {
               Pick your plan!
             </Typography>
             <Typography color="textSecondary">
-              Find the right option for your needs - start for free or upgrade
-              for more advanced features.
+              Find the right option for your needs—start free and upgrade as you go.
             </Typography>
           </Box>
           <Grid
@@ -164,6 +163,8 @@ const Pricing = () => {
           </Grid>
         </Container>
 
+        <Divider />
+
         <Container sx={{ py: 8 }}>
           <Box
             sx={{
@@ -174,7 +175,7 @@ const Pricing = () => {
             }}
           >
             <Box sx={{ mb: 4 }}>
-              <Typography variant="h3">Get started today</Typography>
+              <Typography variant="h3">Still have questions?</Typography>
               <Typography color="textSecondary">
                 Let AuthSafe handle your authentication needs while you unlock
                 your app&apos;s full potential.
