@@ -23,12 +23,21 @@ const Pricing = () => {
       <Header />
       <main>
         <Container sx={{ py: 8 }} id="pricing">
-          <Typography
-            variant="h4"
-            sx={{ fontWeight: 'bold', textAlign: 'center', mb: 2 }}
+          <Box
+            sx={{
+              mb: 2,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
           >
-            Pricing
-          </Typography>
+            <Typography variant="h2" component="h1">
+              Pick your plan!
+            </Typography>
+            <Typography color="textSecondary">
+              Find the right option for your needs - start for free or upgrade
+              for more advanced features.
+            </Typography>
+          </Box>
           <Grid
             container
             spacing={3}
@@ -155,9 +164,30 @@ const Pricing = () => {
           </Grid>
         </Container>
 
-        <Divider />
-
-        <Container sx={{ py: 8 }}></Container>
+        <Container sx={{ py: 8 }}>
+          <Box
+            sx={{
+              background: 'linear-gradient(135deg, #14082f, #292f6e)',
+              padding: '60px',
+              borderRadius: '20px',
+              position: 'relative',
+            }}
+          >
+            <Box sx={{ mb: 4 }}>
+              <Typography variant="h3">Get started today</Typography>
+              <Typography color="textSecondary">
+                Let AuthSafe handle your authentication needs while you unlock
+                your app&apos;s full potential.
+              </Typography>
+            </Box>
+            <Button
+              variant="contained"
+              href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register`}
+            >
+              Start Now
+            </Button>
+          </Box>
+        </Container>
       </main>
       <Footer />
     </Fragment>

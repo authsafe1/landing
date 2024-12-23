@@ -71,14 +71,12 @@ const NavMenu: FC<NavMenuProps> = ({ open, anchorEl, body, onClose }) => {
           }}
         >
           <Button
-            component="a"
             size="small"
             href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register`}
           >
             Register
           </Button>
           <Button
-            component="a"
             variant="contained"
             size="small"
             href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/login`}
@@ -213,14 +211,12 @@ const Header: FC = () => {
           <Box>
             <Box sx={{ display: 'flex', gap: 2 }}>
               <Button
-                component="a"
                 size="small"
                 href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register`}
               >
                 Register
               </Button>
               <Button
-                component="a"
                 variant="contained"
                 size="small"
                 href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/login`}
