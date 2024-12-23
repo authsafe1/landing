@@ -1,5 +1,4 @@
-import { Footer, Header } from '@/components';
-import { SupportAgent } from '@mui/icons-material';
+import { Footer, Header, SupportPageFade } from '@/components';
 import {
   Box,
   Button,
@@ -20,14 +19,14 @@ const Contact = () => {
         <Container sx={{ py: 8 }} maxWidth="lg">
           <Box sx={{ mb: 2 }}>
             <Typography variant="h2" component="h1">
-              How can we help you?
+              Need help?
             </Typography>
             <Typography color="textSecondary">
-              Get in touch with our sales and support teams for demos,
-              onboarding support, or product questions.
+              Our team is ready to assist you with your sales inquiries,
+              technical support, or product-related questions.
             </Typography>
           </Box>
-          <Grid container spacing={4}>
+          <Grid container rowSpacing={4} columnSpacing={6}>
             <Grid size={{ xs: 12, md: 6 }} textAlign="center">
               <Paper variant="outlined" sx={{ p: 4 }}>
                 <Stack direction="column" divider={<Divider />} spacing={4}>
@@ -37,23 +36,23 @@ const Contact = () => {
                         Sales
                       </Typography>
                       <Typography>
-                        Connect with our sales team to talk about pricing,
-                        enterprise contracts, or to request a demo
+                        Get in touch to discuss pricing, enterprise options, or
+                        to schedule a demo.
                       </Typography>
                     </Box>
-                    <Button variant="contained">Talk to Sales</Button>
+                    <Button variant="contained">Explore more</Button>
                   </Box>
                   <Box>
                     <Box sx={{ mb: 4 }}>
                       <Typography gutterBottom variant="h4">
-                        Support
+                        Engineering
                       </Typography>
                       <Typography>
-                        Submit a ticket to our support team or email
-                        support@clerk.dev directly
+                        Submit a support ticket or email support@authsafe.in for
+                        quick assistance.
                       </Typography>
                     </Box>
-                    <Button variant="contained">Submit a ticket</Button>
+                    <Button variant="contained">Ask for help</Button>
                   </Box>
                 </Stack>
               </Paper>
@@ -65,7 +64,7 @@ const Contact = () => {
               alignItems="center"
             >
               <Box>
-                <SupportAgent sx={{ fontSize: 150 }} />
+                <SupportPageFade />
               </Box>
             </Grid>
           </Grid>
