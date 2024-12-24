@@ -20,16 +20,11 @@ import {
   Paper,
   Stack,
   Typography,
-  useMediaQuery,
-  useTheme,
 } from '@mui/material';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
 const Homepage = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
   return (
     <Fragment>
       <Header />
@@ -42,15 +37,20 @@ const Homepage = () => {
                   <AuthSafeIcon sx={{ fontSize: 96 }} />
                 </Box>
                 <Typography
-                  variant={isMobile ? 'h3' : 'h2'}
-                  component="span"
-                  sx={{ fontWeight: 'bold', mt: 2 }}
+                  component="h1"
+                  sx={(theme) => ({
+                    fontWeight: 'bold',
+                    mt: 2,
+                    fontSize: theme.typography.h2.fontSize,
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: theme.typography.h3.fontSize,
+                    },
+                  })}
                 >
                   {`The Future of Authentication, `}
                   <Typography
-                    variant={isMobile ? 'h3' : 'h2'}
                     component="span"
-                    sx={{
+                    sx={(theme) => ({
                       background:
                         'linear-gradient(165deg, rgba(11,246,228,1) 30%, rgba(195,130,255,1) 76%)',
                       filter: `progid:DXImageTransform.Microsoft.gradient(startColorstr="#0bf6e4",endColorstr="#c382ff",GradientType=1)`,
@@ -58,7 +58,11 @@ const Homepage = () => {
                       color: 'transparent',
                       fontWeight: 'bold',
                       textAlign: 'center',
-                    }}
+                      fontSize: theme.typography.h2.fontSize,
+                      [theme.breakpoints.down('md')]: {
+                        fontSize: theme.typography.h3.fontSize,
+                      },
+                    })}
                   >
                     Today
                   </Typography>
@@ -67,11 +71,18 @@ const Homepage = () => {
                   Secure, Simple, Seamless.
                 </Typography>
                 <Typography
-                  fontSize={isMobile ? 'medium' : 'large'}
-                  color={
-                    theme.palette.mode === 'dark' ? 'textSecondary' : undefined
-                  }
-                  sx={{ mx: 'auto', mt: 3, maxWidth: 'sm' }}
+                  sx={(theme) => ({
+                    mx: 'auto',
+                    mt: 3,
+                    maxWidth: 'sm',
+                    ...theme.applyStyles('dark', {
+                      color: 'text.secondary',
+                    }),
+                    fontSize: 'large',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 'medium',
+                    },
+                  })}
                 >
                   Empower applications with seamless user authentication and
                   robust security. From single sign-on to fine-grained
@@ -79,8 +90,58 @@ const Homepage = () => {
                   compromising privacy. Protect your resources, enhance user
                   experiences, and let your developers focus on what matters.
                 </Typography>
-                {isMobile ? (
-                  <Box
+                <Box
+                  component="form"
+                  action={(formData) => {
+                    const email = formData.get('email');
+                    window.location.replace(
+                      `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register?email=${email}`,
+                    );
+                  }}
+                  sx={(theme) => ({
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 2,
+                    mt: 5,
+                    [theme.breakpoints.up('md')]: {
+                      display: 'none',
+                    },
+                  })}
+                >
+                  <Paper
+                    variant="outlined"
+                    sx={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      p: 1,
+                      borderRadius: 2,
+                      minWidth: 300,
+                    }}
+                  >
+                    <InputBase
+                      type="email"
+                      autoComplete="email"
+                      required
+                      placeholder="Your work email"
+                      fullWidth
+                    />
+                  </Paper>
+                  <Button type="submit" variant="contained" fullWidth>
+                    Get started
+                  </Button>
+                </Box>
+                <Box
+                  sx={(theme) => ({
+                    display: 'inline-flex',
+                    gap: 2,
+                    mt: 5,
+                    [theme.breakpoints.down('md')]: {
+                      display: 'none',
+                    },
+                  })}
+                >
+                  <Paper
                     component="form"
                     action={(formData) => {
                       const email = formData.get('email');
@@ -88,68 +149,27 @@ const Homepage = () => {
                         `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register?email=${email}`,
                       );
                     }}
+                    variant="outlined"
                     sx={{
                       display: 'flex',
-                      flexDirection: 'column',
-                      gap: 2,
-                      mt: 5,
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      p: 2,
+                      borderRadius: 2,
+                      minWidth: 300,
                     }}
                   >
-                    <Paper
-                      variant="outlined"
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        p: 1,
-                        borderRadius: 2,
-                        minWidth: 300,
-                      }}
-                    >
-                      <InputBase
-                        type="email"
-                        autoComplete="email"
-                        required
-                        placeholder="Your work email"
-                        fullWidth
-                      />
-                    </Paper>
-                    <Button type="submit" variant="contained" fullWidth>
+                    <InputBase
+                      type="email"
+                      autoComplete="email"
+                      required
+                      placeholder="Your work email"
+                    />
+                    <Button type="submit" variant="contained">
                       Get started
                     </Button>
-                  </Box>
-                ) : (
-                  <Box sx={{ display: 'inline-flex', gap: 2, mt: 5 }}>
-                    <Paper
-                      component="form"
-                      action={(formData) => {
-                        const email = formData.get('email');
-                        window.location.replace(
-                          `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register?email=${email}`,
-                        );
-                      }}
-                      variant="outlined"
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        p: 2,
-                        borderRadius: 2,
-                        minWidth: 300,
-                      }}
-                    >
-                      <InputBase
-                        type="email"
-                        autoComplete="email"
-                        required
-                        placeholder="Your work email"
-                      />
-                      <Button type="submit" variant="contained">
-                        Get started
-                      </Button>
-                    </Paper>
-                  </Box>
-                )}
+                  </Paper>
+                </Box>
               </Grid>
               <Grid size={{ xs: 12, md: 6 }}>
                 <Box
@@ -218,16 +238,26 @@ const Homepage = () => {
             <Grid container width="100%" justifyContent="center">
               <Grid size={{ xs: 12, md: 6 }}>
                 <Typography
-                  variant={isMobile ? 'h4' : 'h2'}
                   component="h3"
                   fontWeight={500}
                   gutterBottom
+                  sx={(theme) => ({
+                    fontSize: theme.typography.h2.fontSize,
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: theme.typography.h4.fontSize,
+                    },
+                  })}
                 >
                   Secure Your Application with AuthSafe
                 </Typography>
                 <Typography
-                  fontSize={isMobile ? 'medium' : 'large'}
                   gutterBottom
+                  sx={(theme) => ({
+                    fontSize: 'large',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: 'medium',
+                    },
+                  })}
                 >
                   OAuth 2.0 and OpenID Connect provide powerful frameworks to
                   protect your applications by enabling secure, scalable
@@ -235,22 +265,38 @@ const Homepage = () => {
                   user satisfaction while adhering to the highest security
                   standards.
                 </Typography>
-                {isMobile ? (
-                  <Box
-                    component="img"
-                    src={
-                      theme.palette.mode === 'dark'
-                        ? '/images/flow-dark.svg'
-                        : '/images/flow-light.svg'
-                    }
-                    alt="OAuth 2.0 flow diagram"
-                    loading="lazy"
-                    sx={{
-                      width: '100%',
-                      height: 'auto',
-                    }}
-                  />
-                ) : null}
+                <Box
+                  component="img"
+                  src={'/images/flow-light.svg'}
+                  alt="OAuth 2.0 flow diagram"
+                  loading="lazy"
+                  sx={(theme) => ({
+                    width: '100%',
+                    height: 'auto',
+                    [theme.breakpoints.up('md')]: {
+                      display: 'none',
+                    },
+                    ...theme.applyStyles('dark', {
+                      display: 'none',
+                    }),
+                  })}
+                />
+                <Box
+                  component="img"
+                  src={'/images/flow-dark.svg'}
+                  alt="OAuth 2.0 flow diagram"
+                  loading="lazy"
+                  sx={(theme) => ({
+                    width: '100%',
+                    height: 'auto',
+                    [theme.breakpoints.up('md')]: {
+                      display: 'none',
+                    },
+                    ...theme.applyStyles('light', {
+                      display: 'none',
+                    }),
+                  })}
+                />
                 <ul>
                   <li>
                     <strong>Universal Login:</strong> Enable a seamless user
@@ -287,30 +333,51 @@ const Homepage = () => {
                   Contact Us
                 </Button>
               </Grid>
-              {!isMobile ? (
-                <Grid
-                  size={{ xs: 12, md: 6 }}
-                  display="flex"
-                  textAlign="center"
-                  alignItems="center"
-                  sx={{ mt: isMobile ? 4 : 0 }}
-                >
-                  <Box
-                    component="img"
-                    src={
-                      theme.palette.mode === 'dark'
-                        ? '/images/flow-dark.svg'
-                        : '/images/flow-light.svg'
-                    }
-                    alt="OAuth 2.0 flow diagram"
-                    loading="lazy"
-                    sx={{
-                      width: '100%',
-                      height: 'auto',
-                    }}
-                  />
-                </Grid>
-              ) : null}
+              <Grid
+                size={{ xs: 12, md: 6 }}
+                display="flex"
+                textAlign="center"
+                alignItems="center"
+                sx={(theme) => ({
+                  mt: 0,
+                  [theme.breakpoints.down('md')]: {
+                    mt: 4,
+                  },
+                })}
+              >
+                <Box
+                  component="img"
+                  src={'/images/flow-light.svg'}
+                  alt="OAuth 2.0 flow diagram"
+                  loading="lazy"
+                  sx={(theme) => ({
+                    width: '100%',
+                    height: 'auto',
+                    [theme.breakpoints.down('md')]: {
+                      display: 'none',
+                    },
+                    ...theme.applyStyles('dark', {
+                      display: 'none',
+                    }),
+                  })}
+                />
+                <Box
+                  component="img"
+                  src={'/images/flow-dark.svg'}
+                  alt="OAuth 2.0 flow diagram"
+                  loading="lazy"
+                  sx={(theme) => ({
+                    width: '100%',
+                    height: 'auto',
+                    [theme.breakpoints.down('md')]: {
+                      display: 'none',
+                    },
+                    ...theme.applyStyles('light', {
+                      display: 'none',
+                    }),
+                  })}
+                />
+              </Grid>
             </Grid>
           </Paper>
         </Container>
@@ -324,20 +391,41 @@ const Homepage = () => {
             </Grid>
             <Grid size={{ xs: 12, md: 6 }}>
               <Typography
-                variant={isMobile ? 'h4' : 'h2'}
                 component="h3"
                 fontWeight={500}
                 gutterBottom
+                sx={(theme) => ({
+                  fontSize: theme.typography.h2.fontSize,
+                  [theme.breakpoints.down('md')]: {
+                    fontSize: theme.typography.h4.fontSize,
+                  },
+                })}
               >
                 Seamless Integration for Your Applications
               </Typography>
-              <Typography fontSize={isMobile ? 'medium' : 'large'} gutterBottom>
+              <Typography
+                gutterBottom
+                sx={(theme) => ({
+                  fontSize: 'large',
+                  [theme.breakpoints.down('md')]: {
+                    fontSize: 'medium',
+                  },
+                })}
+              >
                 Simplify secure user authentication in your application with
                 OAuth 2.0 and OpenID Connect, ensuring reliable logins and
                 Single Sign-On (SSO) across platforms like web, mobile, and
                 enterprise.{' '}
               </Typography>
-              <Typography fontSize={isMobile ? 'medium' : 'large'} gutterBottom>
+              <Typography
+                gutterBottom
+                sx={(theme) => ({
+                  fontSize: 'large',
+                  [theme.breakpoints.down('md')]: {
+                    fontSize: 'medium',
+                  },
+                })}
+              >
                 Key benefits include:
               </Typography>
               <ul>
@@ -366,7 +454,14 @@ const Homepage = () => {
                   implementation.
                 </li>
               </ul>
-              <Typography fontSize={isMobile ? 'medium' : 'large'}>
+              <Typography
+                sx={(theme) => ({
+                  fontSize: 'large',
+                  [theme.breakpoints.down('md')]: {
+                    fontSize: 'medium',
+                  },
+                })}
+              >
                 Enable your team to deliver trusted, high-performance
                 applications effortlessly.
               </Typography>

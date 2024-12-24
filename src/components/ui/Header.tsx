@@ -14,7 +14,6 @@ import {
   MenuItem,
   SvgIconTypeMap,
   Toolbar,
-  useTheme,
 } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import Link from 'next/link';
@@ -98,7 +97,7 @@ const CompanyMenu: FC<CompanyMenuProps> = ({
   return (
     <Menu open={open} anchorEl={anchorEl} onClose={onClose}>
       {body.map(({ header, subHeader, Icon, url }, index) => (
-        <MenuItem key={`menu-${index}`} component={Link} href={url}>
+        <MenuItem key={`company-menu-${index}`} component={Link} href={url}>
           <ListItemIcon>
             <Icon />
           </ListItemIcon>
@@ -114,8 +113,6 @@ const Header: FC = () => {
   const [navMenuOpen, setNavMenuOpen] = useState(false);
   const navMenuRef = useRef<HTMLDivElement>(null);
   const companyRef = useRef<HTMLButtonElement>(null);
-
-  const theme = useTheme();
 
   const handleCompanyMenuClose = () => {
     setMoreMenuOpen(false);
@@ -175,7 +172,7 @@ const Header: FC = () => {
           <Box flex={1}>
             <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
               <IconButton LinkComponent={Link} href="/">
-                <AuthSafeIcon theme={theme.palette.mode} />
+                <AuthSafeIcon />
               </IconButton>
               {constants.headerData.desktop.static.map(
                 ({ header, url, hasDropdown, EndIcon }, index) =>
