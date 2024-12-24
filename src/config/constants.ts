@@ -24,9 +24,9 @@ import {
 const constants = {
   features: [
     {
-      header: 'Completely Free',
+      header: 'Generous Free Tier',
       description:
-        'Completely free to start with and provides reasonable quotas to start with an organization.',
+        'Freeto begin with and provides reasonable quotas to start with an organization.',
       Icon: MonetizationOn,
     },
     {

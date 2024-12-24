@@ -8,14 +8,12 @@ import {
   Link as MuiLink,
   Stack,
   Typography,
-  useTheme,
 } from '@mui/material';
 import Link from 'next/link';
 import { FC } from 'react';
 import AuthSafeIcon from '../icons/AuthSafeIcon';
 
 const Footer: FC = () => {
-  const theme = useTheme();
   return (
     <Box component="footer" id="footer">
       <Divider sx={{ mb: 3 }} />
@@ -32,7 +30,7 @@ const Footer: FC = () => {
           })}
         >
           <Grid sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <AuthSafeIcon theme={theme.palette.mode} fontSize="large" />
+            <AuthSafeIcon fontSize="large" />
             <Typography variant="h5" fontWeight="bold">
               AuthSafe
             </Typography>

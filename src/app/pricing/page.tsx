@@ -34,7 +34,8 @@ const Pricing = () => {
               Pick your plan!
             </Typography>
             <Typography color="textSecondary">
-              Find the right option for your needs—start free and upgrade as you go.
+              Find the right option for your needs—start free and upgrade as you
+              go.
             </Typography>
           </Box>
           <Grid

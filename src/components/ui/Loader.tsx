@@ -1,11 +1,10 @@
 'use client';
 
-import { Backdrop, CircularProgress, useTheme } from '@mui/material';
+import { Backdrop, CircularProgress } from '@mui/material';
 import { FC } from 'react';
 import AuthSafeIcon from '../icons/AuthSafeIcon';
 
 const Loader: FC = () => {
-  const theme = useTheme();
   return (
     <Backdrop
       sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
@@ -14,12 +13,14 @@ const Loader: FC = () => {
       <div style={{ position: 'relative', display: 'inline-flex' }}>
         <CircularProgress
           size={60}
-          sx={{
-            color: theme.palette.mode === 'dark' ? '#fff' : '#000',
-          }}
+          sx={(theme) => ({
+            color: '#000',
+            ...theme.applyStyles('dark', {
+              color: '#fff',
+            }),
+          })}
         />
         <AuthSafeIcon
-          theme={theme.palette.mode}
           fontSize="large"
           style={{
             position: 'absolute',

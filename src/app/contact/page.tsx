@@ -1,4 +1,5 @@
 import { Footer, Header, SupportPageFade } from '@/components';
+import { ArrowRight } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -40,7 +41,9 @@ const Contact = () => {
                         to schedule a demo.
                       </Typography>
                     </Box>
-                    <Button variant="contained">Explore more</Button>
+                    <Button variant="contained" endIcon={<ArrowRight />}>
+                      Explore more
+                    </Button>
                   </Box>
                   <Box>
                     <Box sx={{ mb: 4 }}>
@@ -52,7 +55,9 @@ const Contact = () => {
                         quick assistance.
                       </Typography>
                     </Box>
-                    <Button variant="contained">Ask for help</Button>
+                    <Button variant="contained" endIcon={<ArrowRight />}>
+                      Ask for help
+                    </Button>
                   </Box>
                 </Stack>
               </Paper>
