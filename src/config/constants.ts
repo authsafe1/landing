@@ -276,7 +276,7 @@ const constants = {
       title: 'Professional',
       subtitle: 'Powerful features for growing teams',
       subheader: 'Recommended',
-      totalPrice: '1999',
+      totalPrice: '999',
       description: [
         'Up to 100,000 users',
         'Social login integration',
@@ -292,7 +292,7 @@ const constants = {
     {
       title: 'Enterprise',
       subtitle: 'Custom-tailored for large organizations',
-      totalPrice: '7999',
+      totalPrice: '5999',
       description: [
         'Unlimited users',
         'SSO support',
