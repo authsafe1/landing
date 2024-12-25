@@ -90,6 +90,7 @@ const Blog = async ({ params }: BlogPageProps) => {
                   }
                 )?.url
               }`}
+              alt={blog.fields.photo?.fields.title}
               sx={{ width: '100%', height: 'auto' }}
             />
           </Box>

@@ -54,6 +54,7 @@ const Blogs = async () => {
                               }
                             )?.url
                           }`}
+                          alt={fields.photo?.fields.title}
                         />
                       </CardActionArea>
                     </Card>
