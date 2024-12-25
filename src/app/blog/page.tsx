@@ -43,7 +43,15 @@ const Blogs = async () => {
                       <CardActionArea
                         LinkComponent={Link}
                         href={`/blog/${fields.slug}`}
-                        sx={{ height: '100%' }}
+                        sx={{
+                          height: '100%',
+                          transition:
+                            'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                          '&:hover': {
+                            transform: 'scale(1.05)',
+                            backgroundColor: 'rgba(0, 0, 0, 0.08)',
+                          },
+                        }}
                       >
                         <CardMedia
                           component="img"
@@ -55,6 +63,12 @@ const Blogs = async () => {
                             )?.url
                           }`}
                           alt={fields.photo?.fields.title}
+                          sx={{
+                            transition: 'opacity 0.6s ease',
+                            '&:hover': {
+                              opacity: 0.8,
+                            },
+                          }}
                         />
                       </CardActionArea>
                     </Card>
@@ -87,9 +101,18 @@ const Blogs = async () => {
                         sx={{ p: 2, height: '100%' }}
                       >
                         <Chip
-                          label={dayjs(sys.createdAt).format('MMM DD, YYYY')}
+                          label={
+                            <Typography
+                              fontSize="small"
+                              sx={{ color: 'common.white' }}
+                            >
+                              {dayjs(sys.createdAt).format('MMM DD, YYYY')}
+                            </Typography>
+                          }
                           variant="filled"
-                          sx={{ backgroundColor: '#000 !important' }}
+                          sx={{
+                            backgroundColor: '#000 !important',
+                          }}
                         />
                         <Typography variant="h6" gutterBottom>
                           {fields.title}
