@@ -1,7 +1,7 @@
 import { Header } from '@/components';
 import { fetchAllBlogSlugs, fetchBlogPost } from '@/utils/blogHelper';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { ArrowBack } from '@mui/icons-material';
+import { ArrowLeft } from '@mui/icons-material';
 import { Box, Button, Container, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { Metadata } from 'next';
@@ -59,13 +59,8 @@ const Blog = async ({ params }: BlogPageProps) => {
       <Header />
       <main>
         <Container sx={{ py: 8 }} maxWidth="lg">
-          <Box sx={{ mb: 8 }}>
-            <Button
-              LinkComponent={Link}
-              href="/blog"
-              startIcon={<ArrowBack fontSize="small" />}
-              size="small"
-            >
+          <Box sx={{ mb: 4 }}>
+            <Button LinkComponent={Link} href="/blog" startIcon={<ArrowLeft />}>
               Back to blog
             </Button>
           </Box>
