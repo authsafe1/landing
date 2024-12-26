@@ -1,23 +1,20 @@
-import { Header } from '@/components';
+import { BlogList, Header } from '@/components';
 import { fetchBlogPosts } from '@/utils/blogHelper';
 import {
   Box,
   Card,
   CardActionArea,
   CardMedia,
-  Chip,
   Container,
   Divider,
   Grid2 as Grid,
-  Paper,
   Typography,
 } from '@mui/material';
-import dayjs from 'dayjs';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
 const Blogs = async () => {
-  const first3Blogs = await fetchBlogPosts(['sys.createdAt'], 0, 3);
+  const first3Blogs = await fetchBlogPosts([], 0, 3);
   const blogs = await fetchBlogPosts();
 
   return (
@@ -80,51 +77,7 @@ const Blogs = async () => {
             <Divider />
           </Box>
           <Box>
-            <Grid container spacing={2}>
-              {blogs &&
-                blogs.items.map(({ fields, sys }) => (
-                  <Grid key={sys.id} size={{ xs: 12, sm: 6, md: 4 }}>
-                    <Paper
-                      variant="outlined"
-                      sx={{
-                        height: '100%',
-                        backdropFilter: 'blur(16px) saturate(200%)',
-                        WebkitBackdropFilter: 'blur(16px) saturate(200%)',
-                        backgroundColor: 'rgba(177, 83, 254, 0.77)',
-                        borderRadius: '12px',
-                        border: '1px solid rgba(255, 255, 255, 0.125)',
-                      }}
-                    >
-                      <CardActionArea
-                        LinkComponent={Link}
-                        href={`/blog/${fields.slug}`}
-                        sx={{ p: 2, height: '100%' }}
-                      >
-                        <Chip
-                          label={
-                            <Typography
-                              fontSize="small"
-                              sx={{ color: 'common.white' }}
-                            >
-                              {dayjs(sys.createdAt).format('MMM DD, YYYY')}
-                            </Typography>
-                          }
-                          variant="filled"
-                          sx={{
-                            backgroundColor: '#000 !important',
-                          }}
-                        />
-                        <Typography variant="h6" gutterBottom>
-                          {fields.title}
-                        </Typography>
-                        <Typography variant="body2">
-                          {fields.description}
-                        </Typography>
-                      </CardActionArea>
-                    </Paper>
-                  </Grid>
-                ))}
-            </Grid>
+            <BlogList body={blogs?.items} total={blogs.total} />
           </Box>
         </Container>
       </main>
