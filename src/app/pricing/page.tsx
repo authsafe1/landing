@@ -14,6 +14,7 @@ import {
   Grid2 as Grid,
   Typography,
 } from '@mui/material';
+import { grey } from '@mui/material/colors';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
@@ -176,8 +177,10 @@ const Pricing = () => {
             }}
           >
             <Box sx={{ mb: 4 }}>
-              <Typography variant="h3">Still have questions?</Typography>
-              <Typography color="textSecondary">
+              <Typography variant="h3" sx={{ color: 'common.white' }}>
+                Still have questions?
+              </Typography>
+              <Typography sx={{ color: grey[400] }}>
                 Let AuthSafe handle your authentication needs while you unlock
                 your app&apos;s full potential.
               </Typography>
