@@ -1,5 +1,5 @@
 import { theme } from '@/config/theme';
-import { CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
@@ -89,15 +89,6 @@ export default function RootLayout({
       <body className={roboto.variable}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            <GlobalStyles
-              styles={{
-                '*': {
-                  userSelect: 'none',
-                  msUserSelect: 'none',
-                  MozUserSelect: 'none',
-                },
-              }}
-            />
             <CssBaseline />
             {children}
           </ThemeProvider>
