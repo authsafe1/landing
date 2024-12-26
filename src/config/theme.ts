@@ -339,12 +339,9 @@ export const theme = createTheme({
       styleOverrides: {
         root: ({ theme }) => ({
           transition: 'all 100ms ease',
-          backgroundColor: grey[50],
           borderRadius: theme.shape.borderRadius,
           border: `1px solid ${alpha(grey[200], 0.5)}`,
-          boxShadow: 'none',
           ...theme.applyStyles('dark', {
-            backgroundColor: alpha(grey[800], 0.6),
             border: `1px solid ${alpha(grey[700], 0.3)}`,
           }),
           variants: [
@@ -355,7 +352,7 @@ export const theme = createTheme({
               style: {
                 border: `2px solid ${alpha(grey[700], 0.4)}`,
                 boxShadow: 'none',
-                background: 'transparent',
+                backgroundColor: 'transparent',
               },
             },
           ],
