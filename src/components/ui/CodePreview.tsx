@@ -1,12 +1,8 @@
 'use client';
 
-import { Box, Grid2 as Grid, Paper, Tab, Tabs, useTheme } from '@mui/material';
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
-import php from 'highlight.js/lib/languages/php';
-import python from 'highlight.js/lib/languages/python';
-import 'highlight.js/styles/default.min.css';
-import { FC, SyntheticEvent, useEffect, useState } from 'react';
+import { Box, Grid2 as Grid, Paper, Tab, Tabs } from '@mui/material';
+import { FC, SyntheticEvent, useState } from 'react';
+import CodeViewer from './CodeViewer';
 
 const authExamples = {
   javascript: `
@@ -124,12 +120,7 @@ function getToken($code) {
 `,
 };
 
-hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('python', python);
-hljs.registerLanguage('php', php);
-
 const CodePreview: FC = () => {
-  const theme = useTheme();
   const [language, setLanguage] = useState<'javascript' | 'python' | 'php'>(
     'javascript',
   );
@@ -140,23 +131,6 @@ const CodePreview: FC = () => {
   ) => {
     setLanguage(newValue);
   };
-
-  useEffect(() => {
-    const loadTheme = async () => {
-      if (theme.palette.mode === 'dark') {
-        await import('highlight.js/styles/github-dark.min.css');
-      } else {
-        await import('highlight.js/styles/github.min.css');
-      }
-    };
-
-    loadTheme();
-  }, [theme]);
-
-  const highlightedCode = hljs.highlight(authExamples[language], {
-    language,
-    ignoreIllegals: false,
-  });
 
   return (
     <Paper variant="outlined">
@@ -174,11 +148,7 @@ const CodePreview: FC = () => {
         </Grid>
         <Grid width="100%">
           <Box sx={{ overflow: 'auto', p: 1 }}>
-            <pre>
-              <code
-                dangerouslySetInnerHTML={{ __html: highlightedCode.value }}
-              />
-            </pre>
+            <CodeViewer code={authExamples[language]} />
           </Box>
         </Grid>
       </Grid>

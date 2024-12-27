@@ -47,7 +47,7 @@ const BlogList: FC<{
                 sx={{ p: 2, height: '100%' }}
               >
                 <Chip
-                  label={dayjs(sys.createdAt).format('MMM DD, YYYY')}
+                  label={dayjs(sys.updatedAt).format('MMM DD, YYYY')}
                   variant="filled"
                 />
                 <CardContent>
