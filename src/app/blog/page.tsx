@@ -14,8 +14,8 @@ import Link from 'next/link';
 import { Fragment } from 'react';
 
 const Blogs = async () => {
-  const first3Blogs = await fetchBlogPosts([], 0, 3);
-  const blogs = await fetchBlogPosts();
+  const first3Blogs = await fetchBlogPosts(['-sys.updatedAt'], 0, 3);
+  const blogs = await fetchBlogPosts(['-sys.updatedAt']);
 
   return (
     <Fragment>
