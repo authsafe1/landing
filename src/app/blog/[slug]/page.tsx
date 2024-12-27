@@ -24,7 +24,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-export const renderOptions: Options = {
+const renderOptions: Options = {
   renderMark: {
     [MARKS.BOLD]: (text) => (
       <Typography component="span" fontWeight="bold">
