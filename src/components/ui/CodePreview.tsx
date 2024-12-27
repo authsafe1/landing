@@ -148,7 +148,7 @@ const CodePreview: FC = () => {
         </Grid>
         <Grid width="100%">
           <Box sx={{ overflow: 'auto', p: 1 }}>
-            <CodeViewer code={authExamples[language]} />
+            <CodeViewer code={authExamples[language]} language={language} />
           </Box>
         </Grid>
       </Grid>
