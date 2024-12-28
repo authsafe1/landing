@@ -17,6 +17,7 @@ import {
 } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { FC, Fragment, useRef, useState } from 'react';
 import AuthSafeIcon from '../icons/AuthSafeIcon';
 
@@ -31,6 +32,7 @@ interface CompanyMenuProps {
     };
     url: string;
   }[];
+  onClick: (url: string) => void;
   onClose: () => void;
 }
 
@@ -44,14 +46,28 @@ interface NavMenuProps {
     };
     url: string;
   }[];
+  onClick: (url: string) => void;
   onClose: () => void;
 }
 
-const NavMenu: FC<NavMenuProps> = ({ open, anchorEl, body, onClose }) => {
+const NavMenu: FC<NavMenuProps> = ({
+  open,
+  anchorEl,
+  body,
+  onClick,
+  onClose,
+}) => {
   return (
     <Menu open={open} anchorEl={anchorEl} onClose={onClose}>
       {body.map(({ header, Icon, url }, index) => (
-        <MenuItem component={Link} href={url} key={`nav-menu-${index}`}>
+        <MenuItem
+          key={`nav-menu-${index}`}
+          href={url}
+          onClick={() => {
+            onClick(url);
+            return false;
+          }}
+        >
           <ListItemIcon>
             <Icon fontSize="small" />
           </ListItemIcon>
@@ -92,12 +108,20 @@ const CompanyMenu: FC<CompanyMenuProps> = ({
   open,
   anchorEl,
   body,
+  onClick,
   onClose,
 }) => {
   return (
     <Menu open={open} anchorEl={anchorEl} onClose={onClose}>
       {body.map(({ header, subHeader, Icon, url }, index) => (
-        <MenuItem key={`company-menu-${index}`} component={Link} href={url}>
+        <MenuItem
+          key={`company-menu-${index}`}
+          href={url}
+          onClick={() => {
+            onClick(url);
+            return false;
+          }}
+        >
           <ListItemIcon>
             <Icon />
           </ListItemIcon>
@@ -109,13 +133,24 @@ const CompanyMenu: FC<CompanyMenuProps> = ({
 };
 
 const Header: FC = () => {
-  const [moreMenuOpen, setMoreMenuOpen] = useState(false);
+  const [companyMenuOpen, setCompanyMenuOpen] = useState(false);
   const [navMenuOpen, setNavMenuOpen] = useState(false);
   const navMenuRef = useRef<HTMLDivElement>(null);
   const companyRef = useRef<HTMLButtonElement>(null);
+  const router = useRouter();
+
+  const handleNavMenuItemClick = (url: string) => {
+    router.push(url);
+    setNavMenuOpen(false);
+  };
+
+  const handleCompanyNavMenuItemClick = (url: string) => {
+    router.push(url);
+    setCompanyMenuOpen(false);
+  };
 
   const handleCompanyMenuClose = () => {
-    setMoreMenuOpen(false);
+    setCompanyMenuOpen(false);
   };
 
   const handleNavMenuClose = () => {
@@ -125,15 +160,17 @@ const Header: FC = () => {
   return (
     <Fragment>
       <CompanyMenu
-        open={moreMenuOpen}
+        open={companyMenuOpen}
         anchorEl={companyRef.current}
         body={constants.headerData.desktop.dropdown}
+        onClick={handleCompanyNavMenuItemClick}
         onClose={handleCompanyMenuClose}
       />
       <NavMenu
         open={navMenuOpen}
         anchorEl={navMenuRef.current}
         body={constants.headerData.mobile}
+        onClick={handleNavMenuItemClick}
         onClose={handleNavMenuClose}
       />
       <AppBar position="relative" color="transparent" elevation={0}>
@@ -192,11 +229,11 @@ const Header: FC = () => {
                       endIcon={
                         EndIcon ? (
                           <EndIcon
-                            color={moreMenuOpen ? 'disabled' : 'inherit'}
+                            color={companyMenuOpen ? 'disabled' : 'inherit'}
                           />
                         ) : null
                       }
-                      onClick={() => setMoreMenuOpen(true)}
+                      onClick={() => setCompanyMenuOpen(true)}
                       size="small"
                     >
                       {header}
