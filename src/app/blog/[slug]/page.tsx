@@ -1,4 +1,4 @@
-import { CodeViewer, Header } from '@/components';
+import { CodeViewer } from '@/components';
 import { fetchAllBlogSlugs, fetchBlogPost } from '@/utils/blogHelper';
 import {
   documentToReactComponents,
@@ -22,7 +22,6 @@ import {
 import dayjs from 'dayjs';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Fragment } from 'react';
 
 const renderOptions: Options = {
   renderMark: {
@@ -181,10 +180,11 @@ const renderOptions: Options = {
         sx={{
           px: 2,
           py: 1,
-          backgroundColor: 'primary.main',
-          color: 'primary.contrastText',
-          fontWeight: 600,
-          textAlign: 'center',
+          backgroundColor: 'background.paper',
+          border: '1px solid',
+          borderColor: 'divider',
+          fontWeight: 700,
+          fontSize: 'large',
         }}
       >
         {children}
@@ -275,71 +275,66 @@ const Blog = async ({ params }: BlogPageProps) => {
   const blog = await fetchBlogPost(slug);
 
   return (
-    <Fragment>
-      <Header />
-      <main>
-        <Container sx={{ py: 8 }} maxWidth="lg">
-          <Box sx={{ mb: 2 }}>
-            <Button LinkComponent={Link} href="/blog" startIcon={<ArrowLeft />}>
-              Back
-            </Button>
-          </Box>
-          <Box sx={{ mb: 2 }}>
-            <Typography variant="subtitle2" gutterBottom>
-              Last updated on - {` `}
-              <strong>
-                {dayjs(blog.sys.updatedAt).format('MMM DD, YYYY')}
-              </strong>
-            </Typography>
-            <Typography variant="h3" component="h1" fontWeight={700}>
-              {blog.fields.title}
-            </Typography>
-            <Typography color="textSecondary">
-              {blog.fields.description}
-            </Typography>
-          </Box>
-          <Box sx={{ mb: 4 }}>
-            <Box
-              component="img"
-              src={`https:${
-                (
-                  blog.fields.photo?.fields?.file as unknown as {
-                    url: string;
-                  }
-                )?.url
-              }`}
-              alt={blog.fields.photo?.fields.description}
-              sx={{ width: '100%', height: 'auto' }}
-            />
-          </Box>
-          <Box sx={{ mb: 4 }}>
-            {documentToReactComponents(blog.fields.content, renderOptions)}
-          </Box>
+    <main>
+      <Container sx={{ py: 8 }} maxWidth="lg">
+        <Box sx={{ mb: 2 }}>
+          <Button LinkComponent={Link} href="/blog" startIcon={<ArrowLeft />}>
+            Back
+          </Button>
+        </Box>
+        <Box sx={{ mb: 2 }}>
+          <Typography variant="subtitle2" gutterBottom>
+            Last updated on - {` `}
+            <strong>{dayjs(blog.sys.updatedAt).format('MMM DD, YYYY')}</strong>
+          </Typography>
+          <Typography variant="h3" component="h1" fontWeight={700}>
+            {blog.fields.title}
+          </Typography>
+          <Typography color="textSecondary">
+            {blog.fields.description}
+          </Typography>
+        </Box>
+        <Box sx={{ mb: 4 }}>
           <Box
-            sx={{
-              background: 'linear-gradient(135deg, #14082f, #292f6e)',
-              padding: '60px',
-              borderRadius: '20px',
-              position: 'relative',
-            }}
-          >
-            <Box sx={{ mb: 4 }}>
-              <Typography variant="h3" sx={{ color: 'common.white' }}>
-                Get the best out of AuthSafe
-              </Typography>
-            </Box>
-            <Button
-              variant="contained"
-              LinkComponent={Link}
-              href="/docs"
-              endIcon={<ArrowRight />}
-            >
-              Explore Docs
-            </Button>
+            component="img"
+            src={`https:${
+              (
+                blog.fields.photo?.fields?.file as unknown as {
+                  url: string;
+                }
+              )?.url
+            }`}
+            alt={blog.fields.photo?.fields.description}
+            sx={{ width: '100%', height: 'auto' }}
+          />
+        </Box>
+        <Box sx={{ mb: 4 }}>
+          {documentToReactComponents(blog.fields.content, renderOptions)}
+        </Box>
+        <Box
+          sx={{
+            background: 'linear-gradient(135deg, #14082f, #292f6e)',
+            padding: '60px',
+            borderRadius: '20px',
+            position: 'relative',
+          }}
+        >
+          <Box sx={{ mb: 4 }}>
+            <Typography variant="h3" sx={{ color: 'common.white' }}>
+              Get the best out of AuthSafe
+            </Typography>
           </Box>
-        </Container>
-      </main>
-    </Fragment>
+          <Button
+            variant="contained"
+            LinkComponent={Link}
+            href="/docs"
+            endIcon={<ArrowRight />}
+          >
+            Explore Docs
+          </Button>
+        </Box>
+      </Container>
+    </main>
   );
 };
 
