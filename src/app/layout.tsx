@@ -16,7 +16,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: 'AuthSafe | Secure Tomorrow, Today',
   description:
-    'Enterprise-ready platform offering secure authentication with OAuth2, OIDC, and 2FA integration. Open-source and easy to deploy.',
+    'Integrate secure authentication to your app in minutes and streamline user onboarding, customized for fast-growing businesses, devs, and agile teams.',
   icons: [
     {
       url: '/icons/light/favicon.ico',
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     url: 'https://authsafe.in',
     title: 'AuthSafe | Secure Tomorrow, Today',
     description:
-      'Enterprise-ready platform offering secure authentication with OAuth2, OIDC, and 2FA integration. Open-source and easy to deploy.',
+      'Integrate secure authentication to your app in minutes and streamline user onboarding, customized for fast-growing businesses, devs, and agile teams.',
     siteName: 'AuthSafe',
     locale: 'en_US',
     images: {
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AuthSafe | Secure Tomorrow, Today',
     description:
-      'Enterprise-ready platform offering secure authentication with OAuth2, OIDC, and 2FA integration. Open-source and easy to deploy.',
+      'Integrate secure authentication to your app in minutes and streamline user onboarding, customized for fast-growing businesses, devs, and agile teams.',
     images: {
       url: '/images/opengraph.jpg',
       height: '630',
