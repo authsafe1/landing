@@ -14,62 +14,94 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'AuthSafe',
+  title: 'AuthSafe | Secure Tomorrow, Today',
   description:
     'Enterprise-ready platform offering secure authentication with OAuth2, OIDC, and 2FA integration. Open-source and easy to deploy.',
   icons: [
     {
-      url: '/favicon.ico',
+      url: '/icons/light/favicon.ico',
       rel: 'icon',
       type: 'image/x-icon',
+      media: '(prefers-color-scheme: light)',
     },
     {
-      url: '/icons/logo-128x128.png',
-      sizes: '128x128',
+      url: '/icons/light/apple-touch-icon.png',
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
       type: 'image/png',
+      media: '(prefers-color-scheme: light)',
     },
     {
-      url: '/icons/logo-256x256.png',
-      sizes: '256x256',
+      url: '/icons/light/favicon-32x32.png',
+      rel: 'icon',
+      sizes: '32x32',
       type: 'image/png',
+      media: '(prefers-color-scheme: light)',
     },
     {
-      url: '/icons/logo-512x512.png',
-      sizes: '512x512',
+      url: '/icons/light/favicon-16x16.png',
+      rel: 'icon',
+      sizes: '16x16',
       type: 'image/png',
+      media: '(prefers-color-scheme: light)',
     },
     {
-      url: '/icons/logo-maskable-512x512.png',
-      sizes: '512x512',
+      url: '/icons/dark/favicon.ico',
+      rel: 'icon',
+      type: 'image/x-icon',
+      media: '(prefers-color-scheme: dark)',
+    },
+    {
+      url: '/icons/dark/apple-touch-icon.png',
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
       type: 'image/png',
+      media: '(prefers-color-scheme: dark)',
+    },
+    {
+      url: '/icons/dark/favicon-32x32.png',
+      rel: 'icon',
+      sizes: '32x32',
+      type: 'image/png',
+      media: '(prefers-color-scheme: dark)',
+    },
+    {
+      url: '/icons/dark/favicon-16x16.png',
+      rel: 'icon',
+      sizes: '16x16',
+      type: 'image/png',
+      media: '(prefers-color-scheme: dark)',
     },
   ],
-  twitter: {
-    title: 'AuthSafe - Secure Access Management',
-    description:
-      'Enterprise-ready platform offering secure authentication with OAuth2, OIDC, and 2FA integration. Open-source and easy to deploy.',
-    images: {
-      url: '/icons/logo-256x256.png',
-      height: '256',
-      width: '256',
-      type: 'image/png',
-      alt: 'AuthSafe X logo',
-    },
-  },
   openGraph: {
     type: 'website',
-    title: 'AuthSafe - Secure Access Management',
+    url: 'https://authsafe.in',
+    title: 'AuthSafe | Secure Tomorrow, Today',
     description:
       'Enterprise-ready platform offering secure authentication with OAuth2, OIDC, and 2FA integration. Open-source and easy to deploy.',
+    siteName: 'AuthSafe',
+    locale: 'en_US',
     images: {
-      url: '/icons/logo-256x256.png',
-      height: '256',
-      width: '256',
-      type: 'image/png',
+      url: '/images/opengraph.jpg',
+      height: '630',
+      width: '1200',
+      type: 'image/jpeg',
       alt: 'AuthSafe social logo',
     },
   },
-  manifest: '/site.webmanifest',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AuthSafe | Secure Tomorrow, Today',
+    description:
+      'Enterprise-ready platform offering secure authentication with OAuth2, OIDC, and 2FA integration. Open-source and easy to deploy.',
+    images: {
+      url: '/images/opengraph.jpg',
+      height: '630',
+      width: '1200',
+      type: 'image/jpeg',
+      alt: 'AuthSafe twitter logo',
+    },
+  },
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
 };
 
