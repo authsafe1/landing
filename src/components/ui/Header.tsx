@@ -208,7 +208,7 @@ const Header: FC = () => {
         >
           <Box flex={1}>
             <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-              <IconButton LinkComponent={Link} href="/">
+              <IconButton LinkComponent={Link} href="/" aria-label="Home">
                 <AuthSafeIcon />
               </IconButton>
               {constants.headerData.desktop.static.map(
