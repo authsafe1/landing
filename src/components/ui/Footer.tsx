@@ -29,14 +29,22 @@ const Footer: FC = () => {
             },
           })}
         >
-          <Grid sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Grid
+            sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+            aria-label="AuthSafe"
+          >
             <AuthSafeIcon fontSize="large" />
             <Typography variant="h5" component="span" fontWeight="bold">
               AuthSafe
             </Typography>
           </Grid>
-          <Grid container spacing={4}>
-            <Grid>
+          <Grid
+            container
+            spacing={4}
+            component="nav"
+            aria-label="Footer Navigation"
+          >
+            <Grid component="section" aria-labelledby="Product">
               <Stack spacing={1}>
                 <Typography variant="body2" fontWeight="bold">
                   Product
@@ -74,7 +82,7 @@ const Footer: FC = () => {
                 </MuiLink>
               </Stack>
             </Grid>
-            <Grid>
+            <Grid component="section" aria-labelledby="Company">
               <Stack spacing={1}>
                 <Typography variant="body2" fontWeight="bold">
                   Company
@@ -94,7 +102,7 @@ const Footer: FC = () => {
                 </MuiLink>
               </Stack>
             </Grid>
-            <Grid>
+            <Grid component="section" aria-labelledby="Developer">
               <Stack spacing={1}>
                 <Typography variant="body2" fontWeight="bold">
                   Developer
@@ -110,7 +118,7 @@ const Footer: FC = () => {
                 </MuiLink>
               </Stack>
             </Grid>
-            <Grid>
+            <Grid component="section" aria-labelledby="Legal">
               <Stack spacing={1}>
                 <Typography variant="body2" fontWeight="bold">
                   Legal
@@ -141,7 +149,12 @@ const Footer: FC = () => {
           </Grid>
         </Grid>
         <Divider sx={{ mt: 3, mb: 2 }} />
-        <Typography variant="body2" color="text.secondary" align="center">
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          align="center"
+          component="small"
+        >
           {`© ${new Date().getFullYear()} AuthSafe. All rights reserved.`}
         </Typography>
       </Container>

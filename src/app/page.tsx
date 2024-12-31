@@ -62,7 +62,12 @@ const Homepage = () => {
                   Today
                 </Typography>
               </Typography>
-              <Typography variant="h6" color="primary" sx={{ mt: 2 }}>
+              <Typography
+                variant="h6"
+                component="p"
+                color="primary"
+                sx={{ mt: 2 }}
+              >
                 Secure, Simple, Seamless.
               </Typography>
               <Typography
@@ -78,6 +83,7 @@ const Homepage = () => {
                     fontSize: 'medium',
                   },
                 })}
+                component="p"
               >
                 Empower applications with seamless user authentication and
                 robust security. From single sign-on to fine-grained
@@ -189,6 +195,7 @@ const Homepage = () => {
       <Container component="section" sx={{ py: 8 }} id="feature">
         <Typography
           variant="h4"
+          component="h2"
           sx={{ fontWeight: 'bold', textAlign: 'center', mb: 5 }}
         >
           Why Choose AuthSafe?
@@ -199,15 +206,16 @@ const Homepage = () => {
               key={index}
               size={{ xs: 12, sm: 6, md: 4 }}
               textAlign="center"
+              component="article"
             >
               <Stack spacing={2} alignItems="center">
                 <IconWrapper>
                   <Icon fontSize="large" />
                 </IconWrapper>
-                <Typography variant="h6" fontWeight="bold">
+                <Typography variant="h6" component="h3" fontWeight="bold">
                   {header}
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
+                <Typography variant="body2" component="p" color="textSecondary">
                   {description}
                 </Typography>
               </Stack>
@@ -223,7 +231,7 @@ const Homepage = () => {
           <Grid container width="100%" justifyContent="center">
             <Grid size={{ xs: 12, md: 6 }}>
               <Typography
-                component="h3"
+                component="h2"
                 fontWeight={500}
                 gutterBottom
                 sx={(theme) => ({
@@ -237,6 +245,7 @@ const Homepage = () => {
               </Typography>
               <Typography
                 gutterBottom
+                component="p"
                 sx={(theme) => ({
                   fontSize: 'large',
                   [theme.breakpoints.down('md')]: {
@@ -375,7 +384,7 @@ const Homepage = () => {
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
-              component="h3"
+              component="h2"
               fontWeight={500}
               gutterBottom
               sx={(theme) => ({
@@ -395,6 +404,7 @@ const Homepage = () => {
                   fontSize: 'medium',
                 },
               })}
+              component="p"
             >
               Simplify secure user authentication in your application with OAuth
               2.0 and OpenID Connect, ensuring reliable logins and Single
@@ -408,6 +418,7 @@ const Homepage = () => {
                   fontSize: 'medium',
                 },
               })}
+              component="h3"
             >
               Key benefits include:
             </Typography>
@@ -455,6 +466,7 @@ const Homepage = () => {
       <Container component="section" sx={{ py: 8 }} id="faq">
         <Typography
           variant="h4"
+          component="h2"
           sx={{ fontWeight: 'bold', textAlign: 'center', mb: 5 }}
         >
           Frequently Asked Questions
