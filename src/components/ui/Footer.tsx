@@ -31,7 +31,7 @@ const Footer: FC = () => {
         >
           <Grid sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <AuthSafeIcon fontSize="large" />
-            <Typography variant="h5" fontWeight="bold">
+            <Typography variant="h5" component="span" fontWeight="bold">
               AuthSafe
             </Typography>
           </Grid>
