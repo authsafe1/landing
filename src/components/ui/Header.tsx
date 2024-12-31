@@ -166,14 +166,12 @@ const Header: FC = () => {
         onClick={handleCompanyNavMenuItemClick}
         onClose={handleCompanyMenuClose}
       />
-      <NavMenu
-        open={navMenuOpen}
-        anchorEl={navMenuRef.current}
-        body={constants.headerData.mobile}
-        onClick={handleNavMenuItemClick}
-        onClose={handleNavMenuClose}
-      />
-      <AppBar position="relative" color="transparent" elevation={0}>
+      <AppBar
+        position="relative"
+        color="transparent"
+        elevation={0}
+        role="banner"
+      >
         <Toolbar
           sx={(theme) => {
             return {
@@ -182,6 +180,8 @@ const Header: FC = () => {
               },
             };
           }}
+          component="nav"
+          aria-label="Mobile Navigation"
         >
           <Box flex={1} />
           <Box ref={navMenuRef}>
@@ -191,9 +191,17 @@ const Header: FC = () => {
                 transition: 'transform 0.3s ease',
                 transform: navMenuOpen ? 'rotate(90deg)' : 'rotate(0deg)',
               }}
+              aria-expanded={navMenuOpen}
             >
               {navMenuOpen ? <CloseIcon /> : <MenuIcon />}
             </IconButton>
+            <NavMenu
+              open={navMenuOpen}
+              anchorEl={navMenuRef.current}
+              body={constants.headerData.mobile}
+              onClick={handleNavMenuItemClick}
+              onClose={handleNavMenuClose}
+            />
           </Box>
         </Toolbar>
 
@@ -205,10 +213,12 @@ const Header: FC = () => {
               },
             };
           }}
+          component="nav"
+          aria-label="Desktop Navigation"
         >
           <Box flex={1}>
             <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-              <IconButton LinkComponent={Link} href="/">
+              <IconButton LinkComponent={Link} href="/" aria-label="Home">
                 <AuthSafeIcon />
               </IconButton>
               {constants.headerData.desktop.static.map(
@@ -226,6 +236,7 @@ const Header: FC = () => {
                     <Button
                       key={`header-button-${header}-${index}`}
                       ref={companyRef}
+                      aria-expanded={companyMenuOpen}
                       endIcon={
                         EndIcon ? (
                           <EndIcon
@@ -242,7 +253,7 @@ const Header: FC = () => {
               )}
             </Box>
           </Box>
-          <Box>
+          <Box component="section" aria-label="User Actions">
             <Box sx={{ display: 'flex', gap: 2 }}>
               <Button
                 size="small"

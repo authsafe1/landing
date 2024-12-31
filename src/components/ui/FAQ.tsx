@@ -26,7 +26,7 @@ const FAQ: FC<IFAQProps> = ({ body }) => {
     };
 
   return (
-    <Box>
+    <Box component="dl">
       {body.map((value, index) => (
         <Accordion
           expanded={expanded === `panel-${index}`}
@@ -38,12 +38,12 @@ const FAQ: FC<IFAQProps> = ({ body }) => {
             aria-controls={`panel-${index}-content`}
             id={`panel-${index}d-header`}
           >
-            <Typography component="h3" variant="subtitle2">
+            <Typography variant="subtitle2" component="dt" fontSize="medium">
               {value.title}
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography variant="body2" gutterBottom>
+            <Typography variant="body2" component="dd" color="textSecondary">
               {value.summary}
             </Typography>
           </AccordionDetails>
