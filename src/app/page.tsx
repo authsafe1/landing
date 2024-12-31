@@ -169,18 +169,8 @@ const Homepage = () => {
             <Grid size={{ xs: 12, md: 6 }}>
               <Box
                 component="img"
-                srcSet={`
-            /images/dashboard-preview-1x.png 500w,
-            /images/dashboard-preview-2x.png 800w,
-            /images/dashboard-preview-4x.png 1200w
-          `}
-                sizes="
-            (max-width: 400px) 200px,
-            (max-width: 800px) 400px,
-            (max-width: 1200px) 750px,
-            1000px
-          "
-                alt="AuthSafe dashboard Preview"
+                src="/images/dashboard-preview.png"
+                alt="AuthSafe dashboard preview"
                 loading="eager"
                 sx={{
                   width: {
