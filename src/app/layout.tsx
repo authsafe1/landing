@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     'Integrate secure authentication to your app in minutes and streamline user onboarding, customized for fast-growing businesses, devs, and agile teams.',
   icons: [
     {
+      url: '/icons/favicon.svg',
+      rel: 'icon',
+      type: 'image/svg+xml',
+      sizes: 'any',
+    },
+    {
       url: '/icons/light/favicon.ico',
       rel: 'icon',
       type: 'image/x-icon',
