@@ -161,8 +161,6 @@ const Pricing = () => {
         </Grid>
       </Container>
 
-      <Divider />
-
       <Container sx={{ py: 8 }}>
         <Box
           sx={{
@@ -181,11 +179,8 @@ const Pricing = () => {
               your app&apos;s full potential.
             </Typography>
           </Box>
-          <Button
-            variant="contained"
-            href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL}/auth/register`}
-          >
-            Start Now
+          <Button LinkComponent={Link} variant="contained" href="/contact">
+            Contact us
           </Button>
         </Box>
       </Container>

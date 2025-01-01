@@ -66,7 +66,7 @@ const Footer: FC = () => {
                 <MuiLink
                   color="text.secondary"
                   component={Link}
-                  href="#integration"
+                  href="/#integration"
                 >
                   Integration
                 </MuiLink>
