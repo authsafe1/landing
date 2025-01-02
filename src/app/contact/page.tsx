@@ -1,15 +1,13 @@
-import { SupportPageFade } from '@/components';
-import { ArrowRight } from '@mui/icons-material';
+import { ArrowRight, Engineering, SupportAgent } from '@mui/icons-material';
 import {
   Box,
   Button,
   Container,
-  Divider,
   Grid2 as Grid,
   Paper,
-  Stack,
   Typography,
 } from '@mui/material';
+import Link from 'next/link';
 
 const Contact = () => {
   return (
@@ -24,52 +22,52 @@ const Contact = () => {
             support, or product-related questions.
           </Typography>
         </Box>
-        <Grid container rowSpacing={4} columnSpacing={6}>
-          <Grid size={{ xs: 12, md: 6 }} textAlign="center">
-            <Paper variant="outlined" sx={{ p: 4 }}>
-              <Stack direction="column" divider={<Divider />} spacing={4}>
-                <Box>
-                  <Box sx={{ mb: 4 }}>
-                    <Typography gutterBottom variant="h4">
-                      Sales
-                    </Typography>
-                    <Typography>
-                      Get in touch to discuss pricing, enterprise options, or to
-                      schedule a demo.
-                    </Typography>
-                  </Box>
-                  <Button variant="contained" endIcon={<ArrowRight />}>
-                    Explore more
-                  </Button>
+        <Paper variant="outlined" sx={{ p: 4, textAlign: 'center' }}>
+          <Grid container>
+            <Grid container spacing={4}>
+              <Grid size={{ sm: 12, md: 6 }}>
+                <Box sx={{ mb: 4 }}>
+                  <SupportAgent sx={{ fontSize: 100 }} />
+                  <Typography gutterBottom variant="h4">
+                    Sales
+                  </Typography>
+                  <Typography>
+                    Get in touch to discuss pricing, plans, enterprise options,
+                    or to schedule a demo.
+                  </Typography>
                 </Box>
-                <Box>
-                  <Box sx={{ mb: 4 }}>
-                    <Typography gutterBottom variant="h4">
-                      Engineering
-                    </Typography>
-                    <Typography>
-                      Submit a support ticket or email support@authsafe.in for
-                      quick assistance.
-                    </Typography>
-                  </Box>
-                  <Button variant="contained" endIcon={<ArrowRight />}>
-                    Ask for help
-                  </Button>
+                <Button
+                  LinkComponent={Link}
+                  variant="contained"
+                  endIcon={<ArrowRight />}
+                  href="/contact/sales"
+                >
+                  Explore more
+                </Button>
+              </Grid>
+              <Grid size={{ sm: 12, md: 6 }}>
+                <Box sx={{ mb: 4 }}>
+                  <Engineering sx={{ fontSize: 100 }} />
+                  <Typography gutterBottom variant="h4">
+                    Engineering
+                  </Typography>
+                  <Typography>
+                    Submit a support ticket or email support@authsafe.in for
+                    quick assistance.
+                  </Typography>
                 </Box>
-              </Stack>
-            </Paper>
+                <Button
+                  LinkComponent={Link}
+                  variant="contained"
+                  endIcon={<ArrowRight />}
+                  href="/contact/engineering"
+                >
+                  Ask for help
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
-          <Grid
-            size={{ xs: 12, md: 6 }}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Box>
-              <SupportPageFade />
-            </Box>
-          </Grid>
-        </Grid>
+        </Paper>
       </Container>
     </main>
   );
