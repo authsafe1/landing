@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface CodeViewerProps {
   code: string;
@@ -16,7 +16,7 @@ const CodeViewer: React.FC<CodeViewerProps> = ({
     <Box component="code" sx={{ maxWidth: '100%', my: 2 }}>
       <SyntaxHighlighter
         language={language}
-        style={darcula}
+        style={materialDark}
         wrapLines
         wrapLongLines
       >
