@@ -5,8 +5,7 @@ import { FC, SyntheticEvent, useState } from 'react';
 import CodeViewer from './CodeViewer';
 
 const authExamples = {
-  javascript: `
-const fetch = require('node-fetch');
+  javascript: `const fetch = require('node-fetch');
 
 // Step 1: Initiate login
 const initiateLogin = () => {
@@ -26,7 +25,7 @@ const getCode = () => new URLSearchParams(window.location.search).get("code");
 
 // Step 3: Get ID Token
 const getToken = async () => {
-  const response = await fetch("https://authsafe.in/api/oauth2/token", {
+  const response = await fetch("https://api.authsafe.in/oauth2/token", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -40,9 +39,8 @@ const getToken = async () => {
   return await response.json();
 };
 `,
-  python: `
-from flask import redirect, request, jsonify
-import requests
+  python: `from flask import redirect, request, jsonify 
+  import requests
 
 # Step 1: Initiate login
 @app.route('/authorize')
@@ -64,7 +62,7 @@ def callback():
 
 # Step 3: Get ID Token
 def get_token(code):
-    response = requests.post("https://authsafe.in/api/oauth2/token", json={
+    response = requests.post("https://api.authsafe.in/oauth2/token", json={
         "grant_type": "authorization_code",
         "code": code,
         "client_id": "<CLIENT_ID>",
@@ -73,8 +71,7 @@ def get_token(code):
     })
     return response.json()
 `,
-  php: `
-<?php
+  php: `<?php
 // Step 1: Initiate login
 function initiateLogin() {
     $client_id = "<CLIENT_ID>";
@@ -95,7 +92,7 @@ function getCode() {
 
 // Step 3: Get ID Token
 function getToken($code) {
-    $url = "https://authsafe.in/api/oauth2/token";
+    $url = "https://api.authsafe.in/oauth2/token";
     $data = array(
         "grant_type" => "authorization_code",
         "code" => $code,
