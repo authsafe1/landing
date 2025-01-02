@@ -175,7 +175,7 @@ const Homepage = () => {
             <Grid size={{ xs: 12, md: 6 }}>
               <Box
                 component="img"
-                src="/images/dashboard-preview.png"
+                src="/images/dashboard-preview.webp"
                 alt="AuthSafe dashboard preview"
                 loading="eager"
                 sx={{
