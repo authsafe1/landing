@@ -33,7 +33,7 @@ const Blogs = async () => {
             solutions, and stay updated with AuthSafe&apos;s journey.
           </Typography>
         </Box>
-        <Box sx={{ mb: 2 }}>
+        <Box>
           <Grid container spacing={2}>
             {first3Blogs &&
               first3Blogs.items.map(({ fields, sys }) => (
