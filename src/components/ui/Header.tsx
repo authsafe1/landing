@@ -191,6 +191,7 @@ const Header: FC = () => {
                 transition: 'transform 0.3s ease',
                 transform: navMenuOpen ? 'rotate(90deg)' : 'rotate(0deg)',
               }}
+              aria-label="Menu Button"
               aria-expanded={navMenuOpen}
             >
               {navMenuOpen ? <CloseIcon /> : <MenuIcon />}
