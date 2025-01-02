@@ -304,6 +304,7 @@ const Blog = async ({ params }: BlogPageProps) => {
                 }
               )?.url
             }`}
+            loading="eager"
             alt={blog.fields.photo?.fields.description}
             sx={{ width: '100%', height: 'auto' }}
           />
