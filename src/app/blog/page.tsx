@@ -10,7 +10,12 @@ import {
   Grid2 as Grid,
   Typography,
 } from '@mui/material';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Blog',
+};
 
 const Blogs = async () => {
   const first3Blogs = await fetchBlogPosts(['-sys.updatedAt'], 0, 3);
@@ -28,7 +33,7 @@ const Blogs = async () => {
             solutions, and stay updated with AuthSafe&apos;s journey.
           </Typography>
         </Box>
-        <Box sx={{ mb: 2 }}>
+        <Box>
           <Grid container spacing={2}>
             {first3Blogs &&
               first3Blogs.items.map(({ fields, sys }) => (

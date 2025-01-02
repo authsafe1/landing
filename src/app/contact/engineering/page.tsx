@@ -14,6 +14,11 @@ import {
   Select,
   TextField,
 } from '@mui/material';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Engineering',
+};
 
 const Engineering = () => {
   return (
@@ -29,6 +34,7 @@ const Engineering = () => {
             p: 2,
             maxWidth: 500,
             boxShadow: `0px 6px 14px rgba(91, 25, 145, 0.25), 0px 2px 8px rgba(0, 0, 0, 0.15), 0px 12px 25px 8px rgba(177, 83, 254, 0.18)`,
+            borderRadius: 3,
           }}
         >
           <EngineeringIcon fontSize="large" />
