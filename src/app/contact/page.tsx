@@ -7,7 +7,12 @@ import {
   Paper,
   Typography,
 } from '@mui/material';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Contact',
+};
 
 const Contact = () => {
   return (

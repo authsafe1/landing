@@ -10,7 +10,12 @@ import {
   Grid2 as Grid,
   Typography,
 } from '@mui/material';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Blog',
+};
 
 const Blogs = async () => {
   const first3Blogs = await fetchBlogPosts(['-sys.updatedAt'], 0, 3);
