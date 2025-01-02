@@ -22,6 +22,16 @@ export default async function generateSitemap(): Promise<MetadataRoute.Sitemap> 
       priority: 1,
     },
     {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/contact/sales`,
+      lastModified: new Date(),
+      priority: 1,
+    },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/contact/engineering`,
+      lastModified: new Date(),
+      priority: 1,
+    },
+    {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog`,
       lastModified: new Date(),
       priority: 1,
