@@ -136,6 +136,17 @@ const constants = {
       },
     ],
   },
+  instanceType: [
+    {
+      title: 'Free',
+    },
+    {
+      title: 'Professional',
+    },
+    {
+      title: 'Enterprise',
+    },
+  ],
   faq: [
     {
       title: 'What is AuthSafe, and how does it work?',
@@ -439,6 +450,36 @@ const constants = {
   }
   ?>
   `,
+  },
+  fetchError: (status: number) => {
+    switch (status) {
+      case 400:
+        throw new Error(
+          `Bad Request: The server could not understand the request.`,
+        );
+      case 401:
+        throw new Error(
+          `Unauthorized: Access is denied due to invalid credentials.`,
+        );
+      case 403:
+        throw new Error(
+          `Forbidden: You do not have permission to access this resource.`,
+        );
+      case 404:
+        throw new Error(
+          `Not Found: The requested resource could not be found.`,
+        );
+      case 500:
+        throw new Error(
+          `Internal Server Error: The server encountered an issue.`,
+        );
+      case 503:
+        throw new Error(
+          `Service Unavailable: The server is not ready to handle the request.`,
+        );
+      default:
+        throw new Error(`Unexpected Error: Unknown Error`);
+    }
   },
   countryList: [
     'Afghanistan',
