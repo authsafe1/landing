@@ -240,6 +240,26 @@ const constants = {
       ],
     },
   ],
+  aboutTimeline: [
+    {
+      title: 'Create Application',
+    },
+    {
+      title: 'Create User',
+    },
+    {
+      title: 'Create Permissions',
+    },
+    {
+      title: 'Create Role',
+    },
+    {
+      title: 'Assign Role to User',
+    },
+    {
+      title: 'Authorize user with appropriate scopes',
+    },
+  ],
   docIntro: {
     cardData: [
       {
