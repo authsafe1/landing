@@ -4,7 +4,7 @@ import { Box, styled } from '@mui/material';
 const BackgroundWrapper = styled(Box)({
   background: `
       linear-gradient(135deg, #14082f, #292f6e), 
-      url(/images/homepage-hero.png)
+      url(/images/homepage-hero.webp)
     `,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'right bottom',
