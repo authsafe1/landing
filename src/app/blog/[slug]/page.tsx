@@ -16,6 +16,7 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableContainer,
   TableRow,
   Typography,
 } from '@mui/material';
@@ -146,20 +147,19 @@ const renderOptions: Options = {
       />
     ),
     [BLOCKS.TABLE]: (node, children) => (
-      <Box
+      <TableContainer
         component="div"
         sx={{
           my: 3,
-          overflowX: 'auto',
           border: '1px solid',
           borderColor: 'divider',
-          borderRadius: 1,
+          borderRadius: 2,
         }}
       >
         <Table>
           <TableBody>{children}</TableBody>
         </Table>
-      </Box>
+      </TableContainer>
     ),
     [BLOCKS.TABLE_ROW]: (node, children) => <TableRow>{children}</TableRow>,
     [BLOCKS.TABLE_CELL]: (node, children) => (
