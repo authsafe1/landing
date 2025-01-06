@@ -1,5 +1,6 @@
 'use client';
 
+import constants from '@/config/constants';
 import { TypeBlogSkeleton } from '@/utils/blogHelper';
 import { Search } from '@mui/icons-material';
 import {
@@ -24,6 +25,7 @@ const BlogList: FC<{
 }> = ({ body, total }) => {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState('');
+  const [type, setType] = useState('');
   const itemsPerPage = 6;
 
   const handlePaginationChange = (
@@ -37,11 +39,23 @@ const BlogList: FC<{
     setQuery(event.target.value);
   };
 
+  const handleTypeClick = (selectedType: string) => {
+    setType(selectedType);
+    setPage(1);
+  };
+
   const filteredBlogs = useMemo(() => {
-    return body.filter((blog) =>
-      blog.fields.title.toLowerCase().includes(query.toLowerCase()),
-    );
-  }, [query, body]);
+    return body.filter((blog) => {
+      const matchesQuery = blog.fields?.title
+        .toLowerCase()
+        .includes(query.toLowerCase());
+      const matchesType = type
+        ? blog.metadata?.tags?.some((tag) => tag.sys.id === type)
+        : true;
+
+      return matchesQuery && matchesType;
+    });
+  }, [query, body, type]);
 
   const paginatedBlogs = useMemo(() => {
     const startIndex = (page - 1) * itemsPerPage;
@@ -55,17 +69,32 @@ const BlogList: FC<{
 
   return (
     <Grid container spacing={4}>
-      <Grid size={{ xs: 12, md: 6 }}>
-        <OutlinedInput
-          placeholder="Search blogs"
-          onChange={handleQueryChange}
-          endAdornment={
-            <InputAdornment position="end">
-              <Search color="primary" />
-            </InputAdornment>
-          }
-          fullWidth
-        />
+      <Grid container width="100%" spacing={2}>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <OutlinedInput
+            placeholder="Search blogs"
+            onChange={handleQueryChange}
+            endAdornment={
+              <InputAdornment position="end">
+                <Search color="primary" />
+              </InputAdornment>
+            }
+            fullWidth
+          />
+        </Grid>
+        <Grid container alignItems="center" spacing={2}>
+          {constants.blogTags.map(({ label, key }) => (
+            <Grid key={key}>
+              <Chip
+                label={label}
+                variant="outlined"
+                clickable
+                onClick={() => handleTypeClick(key)}
+                onDelete={type === key ? () => handleTypeClick('') : undefined}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </Grid>
       <Grid container spacing={2}>
         {paginatedBlogs.map(({ fields, sys }) => (
@@ -76,10 +105,7 @@ const BlogList: FC<{
                 href={`/blog/${fields.slug}`}
                 sx={{ p: 2, height: '100%' }}
               >
-                <Chip
-                  label={dayjs(sys.updatedAt).format('MMM DD, YYYY')}
-                  variant="filled"
-                />
+                <Chip label={dayjs(sys.updatedAt).format('MMM DD, YYYY')} />
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
                     {fields.title}

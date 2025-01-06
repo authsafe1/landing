@@ -16,9 +16,11 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableContainer,
   TableRow,
   Typography,
 } from '@mui/material';
+import { grey } from '@mui/material/colors';
 import dayjs from 'dayjs';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -146,20 +148,19 @@ const renderOptions: Options = {
       />
     ),
     [BLOCKS.TABLE]: (node, children) => (
-      <Box
+      <TableContainer
         component="div"
         sx={{
           my: 3,
-          overflowX: 'auto',
           border: '1px solid',
           borderColor: 'divider',
-          borderRadius: 1,
+          borderRadius: 2,
         }}
       >
         <Table>
           <TableBody>{children}</TableBody>
         </Table>
-      </Box>
+      </TableContainer>
     ),
     [BLOCKS.TABLE_ROW]: (node, children) => <TableRow>{children}</TableRow>,
     [BLOCKS.TABLE_CELL]: (node, children) => (
@@ -177,14 +178,15 @@ const renderOptions: Options = {
     ),
     [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
       <TableCell
+        variant="head"
         sx={{
-          px: 2,
-          py: 1,
-          backgroundColor: 'background.paper',
+          background: grey[100],
           border: '1px solid',
           borderColor: 'divider',
           fontWeight: 700,
-          fontSize: 'large',
+          '@media (prefers-color-scheme: dark)': {
+            background: grey[700],
+          },
         }}
       >
         {children}
@@ -225,6 +227,30 @@ const renderOptions: Options = {
         {children}
       </ListItem>
     ),
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const { description, title, file } = node.data.target.fields;
+      return (
+        <Box sx={{ mt: 4, mb: 4 }}>
+          <Box component="figure" sx={{ m: 0 }}>
+            <Box
+              component="img"
+              src={`https:${file.url}`}
+              alt={title}
+              loading="eager"
+              sx={{ width: '100%', height: 'auto' }}
+            />
+            <Typography
+              component="figcaption"
+              color="textSecondary"
+              align="center"
+              fontStyle="italic"
+            >
+              {description}
+            </Typography>
+          </Box>
+        </Box>
+      );
+    },
   },
 };
 

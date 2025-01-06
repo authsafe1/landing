@@ -35,7 +35,10 @@ export async function fetchAllBlogSlugs() {
         content_type: 'blog',
         select: ['fields.slug'],
       });
-    return blogs.items.map((value) => ({ slug: value.fields.slug }));
+    return blogs.items.map((value) => ({
+      slug: value.fields.slug,
+      lastModifed: value.sys.updatedAt,
+    }));
   } catch {
     throw new Error('RESOURCE_UNAVAILABLE');
   }

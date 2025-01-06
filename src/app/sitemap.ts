@@ -1,4 +1,5 @@
 import { fetchAllBlogSlugs } from '@/utils/blogHelper';
+import dayjs from 'dayjs';
 import { MetadataRoute } from 'next';
 
 export const dynamic = 'force-static';
@@ -36,9 +37,9 @@ export default async function generateSitemap(): Promise<MetadataRoute.Sitemap> 
       lastModified: new Date(),
       priority: 1,
     },
-    ...slugs.map(({ slug }) => ({
+    ...slugs.map(({ slug, lastModifed }) => ({
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${slug}`,
-      lastModified: new Date(),
+      lastModified: dayjs(lastModifed).toDate(),
       priority: 0.8,
     })),
     {
