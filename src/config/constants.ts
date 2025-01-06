@@ -5,8 +5,8 @@ import {
   Code,
   Construction,
   ContactSupport,
-  Cookie,
   Create,
+  ElectricBolt,
   HelpOutline,
   Home,
   HourglassTop,
@@ -24,39 +24,39 @@ import {
 const constants = {
   features: [
     {
-      header: 'Generous Free Tier',
+      header: 'Start Free, Grow With Us',
       description:
-        'Freeto begin with and provides reasonable quotas to start with an organization.',
+        'Get started at no cost with a generous free tier, perfect for launching and scaling your organization without upfront expenses.',
       Icon: MonetizationOn,
     },
     {
-      header: 'Universal Authentication (OIDC)',
+      header: 'Streamlined User Access',
       description:
-        'Easily integrate single sign-on (SSO) with OpenID Connect (OIDC) to manage user authentication across multiple applications securely.',
+        'Simplify login processes with single sign-on (SSO) powered by OpenID Connect (OIDC). It’s a seamless way to manage secure access across your apps.',
       Icon: Shield,
     },
     {
-      header: 'Secure Session Management',
+      header: 'Seamless, Secure Sessions',
       description:
-        'Leverage cookie-based sessions with secure, HttpOnly cookies for safe, persistent authentication and seamless user experiences.',
-      Icon: Cookie,
-    },
-    {
-      header: 'Advanced Session Handling with Redis',
-      description:
-        'Maximize performance with Redis-backed session storage, providing fast and scalable session handling for millions of users.',
+        'Enjoy peace of mind with secure, cookie-based authentication that keeps users logged in safely and ensures a smooth user experience.',
       Icon: HourglassTop,
     },
     {
-      header: 'Scalable and Secure Data Storage',
+      header: 'Lightning-Fast Performance',
       description:
-        'Use PostgreSQL to manage user data securely and at scale, ensuring your application can handle large datasets effortlessly.',
+        'Boost efficiency with Redis-backed session management, designed for speed and scalability—even with millions of users.',
+      Icon: ElectricBolt,
+    },
+    {
+      header: 'Data You Can Trust',
+      description:
+        'Rely on PostgreSQL for secure, scalable data storage, ensuring your user data is safe and your app can handle growth effortlessly.',
       Icon: Storage,
     },
     {
-      header: 'Enterprise-Grade Scalability',
+      header: 'Ready for Enterprise Growth',
       description:
-        'Built to scale with your business needs, ensuring robust performance and reliability for high-demand enterprise environments.',
+        'Built to grow with your business, offering the reliability and performance needed for high-demand environments.',
       Icon: Business,
     },
   ],
