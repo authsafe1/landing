@@ -60,6 +60,12 @@ const constants = {
       Icon: Business,
     },
   ],
+  blogTags: [
+    { label: 'Introduction', key: 'introduction' },
+    { label: 'News', key: 'news' },
+    { label: 'Product', key: 'product' },
+    { label: 'Knowledge', key: 'knowledge' },
+  ],
   headerData: {
     desktop: {
       static: [
