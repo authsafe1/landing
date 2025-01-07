@@ -15,7 +15,7 @@ const initiateLogin = () => {
   const state = "xxxxx";
   const nonce = "xxxxx";
   
-  const url = \`https://authsafe.in/oauth2/authorize?response_type=code&client_id=\${clientId}&organization_id=\${organizationId}&scope=openid%20profile&redirect_uri=\${redirectUri}&state=\${state}&nonce=\${nonce}\`;
+  const url = \`https://dashboard.authsafe.in/oauth2/authorize?response_type=code&client_id=\${clientId}&organization_id=\${organizationId}&scope=openid%20profile&redirect_uri=\${redirectUri}&state=\${state}&nonce=\${nonce}\`;
   
   window.location.replace(url);
 };
@@ -51,7 +51,7 @@ def initiate_login():
     state = "xxxxx"
     nonce = "xxxxx"
 
-    url = f"https://authsafe.in/oauth2/authorize?response_type=code&client_id={client_id}&organization_id={organization_id}&scope=openid%20profile&redirect_uri={redirect_uri}&state={state}&nonce={nonce}"
+    url = f"https://dashboard.authsafe.in/oauth2/authorize?response_type=code&client_id={client_id}&organization_id={organization_id}&scope=openid%20profile&redirect_uri={redirect_uri}&state={state}&nonce={nonce}"
     return redirect(url)
 
 # Step 2: Get code from callback URL
@@ -80,7 +80,7 @@ function initiateLogin() {
     $state = "xxxxx";
     $nonce = "xxxxx";
 
-    $url = "https://authsafe.in/oauth2/authorize?response_type=code&client_id={$client_id}&organization_id={$organization_id}&scope=openid%20profile&redirect_uri={$redirect_uri}&state={$state}&nonce={$nonce}";
+    $url = "https://dashboard.authsafe.in/oauth2/authorize?response_type=code&client_id={$client_id}&organization_id={$organization_id}&scope=openid%20profile&redirect_uri={$redirect_uri}&state={$state}&nonce={$nonce}";
     header("Location: $url");
     exit();
 }
