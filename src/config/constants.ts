@@ -14,6 +14,7 @@ import {
   IntegrationInstructions,
   MenuBook,
   MonetizationOn,
+  Person,
   PlayArrow,
   PriceChange,
   School,
@@ -92,13 +93,13 @@ const constants = {
         {
           header: 'About',
           subHeader: 'Know about AuthSafe',
-          Icon: Info,
+          Icon: Person,
           url: '/about',
         },
         {
           header: 'Blog',
           subHeader: 'Latest news and updates',
-          Icon: Create,
+          Icon: Book,
           url: '/blog',
         },
         {
@@ -297,7 +298,7 @@ const constants = {
     {
       title: 'Free',
       subtitle: 'Everything you need to get started',
-      totalPrice: '0',
+      totalPrice: '₹0',
       description: [
         '10,000 monthly active users',
         '100 permission and 10 roles',
@@ -307,13 +308,13 @@ const constants = {
       buttonText: 'Sign Up for free',
       buttonVariant: 'outlined',
       buttonColor: 'primary',
-      redirectUrl: '/billing?plan=free',
+      redirectUrl: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/billing?plan=free`,
     },
     {
       title: 'Professional',
       subtitle: 'Powerful features for growing teams',
       subheader: 'Recommended',
-      totalPrice: '999',
+      totalPrice: '₹999',
       description: [
         'Up to 100,000 users',
         'Social login integration',
@@ -324,12 +325,12 @@ const constants = {
       buttonText: 'Upgrade to Pro',
       buttonVariant: 'contained',
       buttonColor: 'primary',
-      redirectUrl: '/billing?plan=professional',
+      redirectUrl: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/billing?plan=professional`,
     },
     {
       title: 'Enterprise',
       subtitle: 'Custom-tailored for large organizations',
-      totalPrice: '5999',
+      totalPrice: 'Custom',
       description: [
         'Unlimited users',
         'SSO support',
@@ -339,7 +340,7 @@ const constants = {
       buttonText: 'Contact Us',
       buttonVariant: 'outlined',
       buttonColor: 'primary',
-      redirectUrl: '/billing?plan=enterprise',
+      redirectUrl: `/contact/sales`,
     },
   ],
   authExamples: {

@@ -302,13 +302,13 @@ const Blog = async ({ params }: BlogPageProps) => {
 
   return (
     <main>
-      <Container sx={{ py: 8 }} maxWidth="lg">
+      <Container sx={{ pt: { md: 0, xl: 8 }, pb: 8 }} maxWidth="xl">
         <Box sx={{ mb: 2 }}>
           <Button LinkComponent={Link} href="/blog" startIcon={<ArrowLeft />}>
             Back
           </Button>
         </Box>
-        <Box sx={{ mb: 2 }}>
+        <Box sx={{ mb: 4 }}>
           <Typography variant="subtitle2" gutterBottom>
             Last updated on - {` `}
             <strong>{dayjs(blog.sys.updatedAt).format('MMM DD, YYYY')}</strong>

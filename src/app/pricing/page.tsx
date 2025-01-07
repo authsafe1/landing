@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const Pricing = () => {
   return (
     <main>
-      <Container sx={{ py: 8 }} id="pricing">
+      <Container sx={{ pb: 8 }} id="pricing">
         <Box
           sx={{
             mb: 2,
@@ -108,7 +108,7 @@ const Pricing = () => {
                     ]}
                   >
                     <Typography component="span" variant="h3">
-                      ₹{tier.totalPrice}
+                      {tier.totalPrice}
                     </Typography>
                     <Typography component="span">&nbsp; per month</Typography>
                   </Box>
@@ -155,7 +155,7 @@ const Pricing = () => {
                     variant={tier.buttonVariant as 'outlined' | 'contained'}
                     color={tier.buttonColor as 'primary' | 'secondary'}
                     LinkComponent={Link}
-                    href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL}${tier.redirectUrl}`}
+                    href={tier.redirectUrl}
                   >
                     {tier.buttonText}
                   </Button>
