@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const AboutPage = () => {
   return (
     <main>
-      <Container maxWidth="xl" sx={{ py: 8 }}>
+      <Container sx={{ pb: 8 }} maxWidth="xl">
         <Box component="section" sx={{ mb: 4 }}>
           <Box
             sx={{

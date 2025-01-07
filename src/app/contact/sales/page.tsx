@@ -11,7 +11,7 @@ const Sales = () => {
     <main>
       <Container
         sx={{ display: 'flex', justifyContent: 'center', py: 8 }}
-        maxWidth="lg"
+        maxWidth="xl"
       >
         <SalesContactForm />
       </Container>

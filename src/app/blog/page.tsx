@@ -23,8 +23,8 @@ const Blogs = async () => {
 
   return (
     <main>
-      <Container sx={{ py: 8 }} maxWidth="lg">
-        <Box sx={{ mb: 2 }}>
+      <Container sx={{ pb: 8 }} maxWidth="xl">
+        <Box sx={{ mb: 4 }}>
           <Typography variant="h2" component="h1">
             Blog: News & Updates
           </Typography>

@@ -173,13 +173,7 @@ const Header: FC = () => {
         role="banner"
       >
         <Toolbar
-          sx={(theme) => {
-            return {
-              [theme.breakpoints.up('md')]: {
-                display: 'none',
-              },
-            };
-          }}
+          sx={{ display: { xs: 'flex', md: 'none' } }}
           component="nav"
           aria-label="Mobile Navigation"
         >
@@ -207,13 +201,7 @@ const Header: FC = () => {
         </Toolbar>
 
         <Toolbar
-          sx={(theme) => {
-            return {
-              [theme.breakpoints.down('md')]: {
-                display: 'none',
-              },
-            };
-          }}
+          sx={{ display: { xs: 'none', md: 'flex' } }}
           component="nav"
           aria-label="Desktop Navigation"
         >

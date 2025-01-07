@@ -82,7 +82,12 @@ const BlogList: FC<{
             fullWidth
           />
         </Grid>
-        <Grid container alignItems="center" spacing={2}>
+        <Grid
+          container
+          alignItems="center"
+          spacing={2}
+          size={{ xs: 12, md: 6 }}
+        >
           {constants.blogTags.map(({ label, key }) => (
             <Grid key={key}>
               <Chip

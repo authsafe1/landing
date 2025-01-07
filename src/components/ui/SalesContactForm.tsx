@@ -17,9 +17,9 @@ import {
   Snackbar,
   TextField,
 } from '@mui/material';
-import { FormEventHandler, useState } from 'react';
+import { FC, FormEventHandler, useState } from 'react';
 
-const SalesContactForm = () => {
+const SalesContactForm: FC = () => {
   const [body, setBody] = useState({
     name: '',
     email: '',
