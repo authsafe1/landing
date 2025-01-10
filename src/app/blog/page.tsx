@@ -23,7 +23,7 @@ const Blogs = async () => {
 
   return (
     <main>
-      <Container sx={{ pb: 8 }} maxWidth="xl">
+      <Container maxWidth={false} sx={{ pb: 8 }}>
         <Box sx={{ mb: 4 }}>
           <Typography variant="h2" component="h1">
             Blog: News & Updates
@@ -33,54 +33,49 @@ const Blogs = async () => {
             solutions, and stay updated with AuthSafe&apos;s journey.
           </Typography>
         </Box>
-        <Box>
-          <Grid container spacing={2}>
-            {first3Blogs &&
-              first3Blogs.items.map(({ fields, sys }) => (
-                <Grid key={sys.id} size={{ xs: 12, sm: 6, md: 4 }}>
-                  <Card variant="outlined" sx={{ height: '100%' }}>
-                    <CardActionArea
-                      LinkComponent={Link}
-                      href={`/blog/${fields.slug}`}
+        <Grid container spacing={2}>
+          {first3Blogs &&
+            first3Blogs.items.map(({ fields, sys }) => (
+              <Grid key={sys.id} size={{ xs: 12, sm: 6, md: 4 }}>
+                <Card variant="outlined" sx={{ height: '100%' }}>
+                  <CardActionArea
+                    LinkComponent={Link}
+                    href={`/blog/${fields.slug}`}
+                    sx={{
+                      height: '100%',
+                      transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                        backgroundColor: 'rgba(0, 0, 0, 0.08)',
+                      },
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      src={`https:${
+                        (
+                          fields.photo?.fields?.file as unknown as {
+                            url: string;
+                          }
+                        )?.url
+                      }`}
+                      alt={fields.photo?.fields.title}
                       sx={{
-                        height: '100%',
-                        transition:
-                          'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                        transition: 'opacity 0.6s ease',
                         '&:hover': {
-                          transform: 'scale(1.05)',
-                          backgroundColor: 'rgba(0, 0, 0, 0.08)',
+                          opacity: 0.8,
                         },
                       }}
-                    >
-                      <CardMedia
-                        component="img"
-                        src={`https:${
-                          (
-                            fields.photo?.fields?.file as unknown as {
-                              url: string;
-                            }
-                          )?.url
-                        }`}
-                        alt={fields.photo?.fields.title}
-                        sx={{
-                          transition: 'opacity 0.6s ease',
-                          '&:hover': {
-                            opacity: 0.8,
-                          },
-                        }}
-                      />
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-              ))}
-          </Grid>
-        </Box>
-        <Box sx={{ mt: 4, mb: 4 }}>
-          <Divider />
-        </Box>
-        <Box>
-          <BlogList body={blogs?.items} total={blogs.total} />
-        </Box>
+                    />
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            ))}
+        </Grid>
+      </Container>
+      <Divider />
+      <Container sx={{ py: 8 }}>
+        <BlogList body={blogs?.items} total={blogs.total} />
       </Container>
     </main>
   );

@@ -302,7 +302,7 @@ const Blog = async ({ params }: BlogPageProps) => {
 
   return (
     <main>
-      <Container sx={{ pt: { md: 0, xl: 8 }, pb: 8 }} maxWidth="xl">
+      <Container sx={{ pt: { md: 0, xl: 8 } }} maxWidth="xl">
         <Box sx={{ mb: 2 }}>
           <Button LinkComponent={Link} href="/blog" startIcon={<ArrowLeft />}>
             Back
@@ -320,7 +320,7 @@ const Blog = async ({ params }: BlogPageProps) => {
             {blog.fields.description}
           </Typography>
         </Box>
-        <Box sx={{ mb: 4 }}>
+        <Box>
           <Box
             component="img"
             src={`https:${
@@ -335,6 +335,8 @@ const Blog = async ({ params }: BlogPageProps) => {
             sx={{ width: '100%', height: 'auto' }}
           />
         </Box>
+      </Container>
+      <Container sx={{ py: 8 }}>
         <Box sx={{ mb: 4 }}>
           {documentToReactComponents(blog.fields.content, renderOptions)}
         </Box>

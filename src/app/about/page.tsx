@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const AboutPage = () => {
   return (
     <main>
-      <Container sx={{ pb: 8 }} maxWidth="xl">
+      <Container maxWidth={false}>
         <Box component="section" sx={{ mb: 4 }}>
           <Box
             sx={{
@@ -68,69 +68,68 @@ const AboutPage = () => {
             </Button>
           </Box>
         </Box>
-        <Box component="section">
-          <Grid container spacing={2}>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Typography component="h2" variant="h4" gutterBottom>
-                How AuthSafe works?
-              </Typography>
-              <Typography>
-                AuthSafe streamlines authentication and user management with a
-                secure, customizable, and developer-friendly approach. Here’s
-                how it works:
-              </Typography>
-              <ul>
-                <li>
-                  <strong>Seamless Integration:</strong> Easily integrate
-                  AuthSafe into your application using our SDKs and APIs for
-                  Node.js and other platforms.
-                </li>
-                <li>
-                  <strong>Universal Login:</strong> Implement a single,
-                  centralized login system for users across multiple
-                  applications with OAuth 2.0 and OpenID Connect support.
-                </li>
-                <li>
-                  <strong>Customizable User Journeys:</strong> Tailor login
-                  flows, branding, and user experiences to match your product’s
-                  identity.
-                </li>
-                <li>
-                  <strong>Advanced Security Measures:</strong> Protect user data
-                  with features like encryption, password hashing, and
-                  multi-factor authentication.
-                </li>
-                <li>
-                  <strong>Authorization Management:</strong> Manage roles,
-                  permissions, and access policies with ease, ensuring
-                  fine-grained control over your app’s resources.
-                </li>
-                <li>
-                  <strong>Scalable Architecture:</strong> AuthSafe adapts to the
-                  needs of growing applications, ensuring high availability and
-                  reliability.
-                </li>
-              </ul>
-              <Typography>
-                From secure login to advanced access management, AuthSafe
-                simplifies authentication while keeping user data protected.
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Timeline position="alternate-reverse">
-                {constants.aboutTimeline.map(({ title }, index) => (
-                  <TimelineItem key={index}>
-                    <TimelineSeparator>
-                      <TimelineDot color="primary" />
-                      <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent>{title}</TimelineContent>
-                  </TimelineItem>
-                ))}
-              </Timeline>
-            </Grid>
+      </Container>
+      <Container component="section" sx={{ py: 8 }}>
+        <Grid container spacing={2}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography component="h2" variant="h4" gutterBottom>
+              How AuthSafe works?
+            </Typography>
+            <Typography>
+              AuthSafe streamlines authentication and user management with a
+              secure, customizable, and developer-friendly approach. Here’s how
+              it works:
+            </Typography>
+            <ul>
+              <li>
+                <strong>Seamless Integration:</strong> Easily integrate AuthSafe
+                into your application using our SDKs and APIs for Node.js and
+                other platforms.
+              </li>
+              <li>
+                <strong>Universal Login:</strong> Implement a single,
+                centralized login system for users across multiple applications
+                with OAuth 2.0 and OpenID Connect support.
+              </li>
+              <li>
+                <strong>Customizable User Journeys:</strong> Tailor login flows,
+                branding, and user experiences to match your product’s identity.
+              </li>
+              <li>
+                <strong>Advanced Security Measures:</strong> Protect user data
+                with features like encryption, password hashing, and
+                multi-factor authentication.
+              </li>
+              <li>
+                <strong>Authorization Management:</strong> Manage roles,
+                permissions, and access policies with ease, ensuring
+                fine-grained control over your app’s resources.
+              </li>
+              <li>
+                <strong>Scalable Architecture:</strong> AuthSafe adapts to the
+                needs of growing applications, ensuring high availability and
+                reliability.
+              </li>
+            </ul>
+            <Typography>
+              From secure login to advanced access management, AuthSafe
+              simplifies authentication while keeping user data protected.
+            </Typography>
           </Grid>
-        </Box>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Timeline position="alternate-reverse">
+              {constants.aboutTimeline.map(({ title }, index) => (
+                <TimelineItem key={index}>
+                  <TimelineSeparator>
+                    <TimelineDot color="primary" />
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent>{title}</TimelineContent>
+                </TimelineItem>
+              ))}
+            </Timeline>
+          </Grid>
+        </Grid>
       </Container>
     </main>
   );
