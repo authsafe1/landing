@@ -302,7 +302,7 @@ const Blog = async ({ params }: BlogPageProps) => {
 
   return (
     <main>
-      <Container sx={{ pt: { md: 0, xl: 8 } }} maxWidth="xl">
+      <Container sx={{ pt: { md: 0, xl: 8 } }}>
         <Box sx={{ mb: 2 }}>
           <Button LinkComponent={Link} href="/blog" startIcon={<ArrowLeft />}>
             Back
