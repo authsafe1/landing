@@ -739,6 +739,8 @@ const constants = {
     'Zimbabwe',
     'Åland Islands',
   ],
+  githubURL: 'https://github.com/authsafe1',
+  mailURL: 'mailto:support@authsafe.in',
 };
 
 export default constants;
