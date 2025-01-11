@@ -1,10 +1,11 @@
-'use client';
-
+import constants from '@/config/constants';
+import { Email, GitHub } from '@mui/icons-material';
 import {
   Box,
   Container,
   Divider,
   Grid2 as Grid,
+  IconButton,
   Link as MuiLink,
   Stack,
   Typography,
@@ -20,14 +21,11 @@ const Footer: FC = () => {
       <Container sx={{ py: 5 }}>
         <Grid
           container
-          sx={(theme) => ({
+          sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            [theme.breakpoints.down('sm')]: {
-              flexDirection: 'column',
-              gap: 4,
-            },
-          })}
+          }}
+          rowSpacing={2}
         >
           <Grid
             sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
@@ -100,6 +98,9 @@ const Footer: FC = () => {
                 >
                   Contact
                 </MuiLink>
+                <MuiLink color="text.secondary" href="/sitemap.xml">
+                  Sitemap
+                </MuiLink>
               </Stack>
             </Grid>
             <Grid component="section" aria-labelledby="Developer">
@@ -149,14 +150,33 @@ const Footer: FC = () => {
           </Grid>
         </Grid>
         <Divider sx={{ mt: 3, mb: 2 }} />
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          align="center"
-          component="small"
-        >
-          {`© ${new Date().getFullYear()} AuthSafe. All rights reserved.`}
-        </Typography>
+        <Grid container component="section" width="100%" alignItems="center">
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              component="small"
+            >
+              {`© ${new Date().getFullYear()} AuthSafe. All rights reserved.`}
+            </Typography>
+          </Grid>
+          <Grid
+            size={{ xs: 12, md: 6 }}
+            sx={{
+              display: 'flex',
+              justifyContent: { xs: 'flex-start', md: 'flex-end' },
+            }}
+          >
+            <Stack spacing={2} direction="row">
+              <IconButton href={constants.mailURL}>
+                <Email />
+              </IconButton>
+              <IconButton href={constants.githubURL}>
+                <GitHub />
+              </IconButton>
+            </Stack>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );
