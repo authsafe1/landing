@@ -18,7 +18,7 @@ import {
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { FC, Fragment, useRef, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import AuthSafeIcon from '../icons/AuthSafeIcon';
 
 interface CompanyMenuProps {
@@ -158,7 +158,7 @@ const Header: FC = () => {
   };
 
   return (
-    <Fragment>
+    <Box sx={{ mb: 2 }}>
       <CompanyMenu
         open={companyMenuOpen}
         anchorEl={companyRef.current}
@@ -261,7 +261,7 @@ const Header: FC = () => {
           </Box>
         </Toolbar>
       </AppBar>
-    </Fragment>
+    </Box>
   );
 };
 
