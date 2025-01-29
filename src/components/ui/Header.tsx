@@ -6,6 +6,7 @@ import {
   AppBar,
   Box,
   Button,
+  Divider,
   IconButton,
   ListItem,
   ListItemIcon,
@@ -158,7 +159,7 @@ const Header: FC = () => {
   };
 
   return (
-    <Box sx={{ mb: 2 }}>
+    <Box sx={{ mb: 1 }}>
       <CompanyMenu
         open={companyMenuOpen}
         anchorEl={companyRef.current}
@@ -260,6 +261,7 @@ const Header: FC = () => {
             </Box>
           </Box>
         </Toolbar>
+        <Divider />
       </AppBar>
     </Box>
   );
