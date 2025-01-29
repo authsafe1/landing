@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const Pricing = () => {
   return (
     <main>
-      <Container sx={{ pb: 8 }} id="pricing">
+      <Container maxWidth="xl" sx={{ pb: 8 }} id="pricing">
         <Box
           sx={{
             mb: 2,
@@ -42,7 +42,7 @@ const Pricing = () => {
         </Box>
         <Grid
           container
-          spacing={3}
+          spacing={4}
           sx={{
             alignItems: 'center',
             justifyContent: 'center',
