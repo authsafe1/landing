@@ -42,7 +42,7 @@ const Pricing = () => {
         </Box>
         <Grid
           container
-          spacing={4}
+          spacing={5}
           sx={{
             alignItems: 'center',
             justifyContent: 'center',
@@ -50,7 +50,7 @@ const Pricing = () => {
           }}
         >
           {constants.pricingTiers.map((tier) => (
-            <Grid key={tier.title}>
+            <Grid key={tier.title} size={{ xs: 12, md: 4 }}>
               <Card
                 variant={
                   tier.title === 'Professional' ? 'elevation' : 'outlined'
