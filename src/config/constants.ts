@@ -314,7 +314,7 @@ const constants = {
       title: 'Professional',
       subtitle: 'Powerful features for growing teams',
       subheader: 'Recommended',
-      totalPrice: '₹999',
+      totalPrice: '₹799',
       description: [
         'Up to 100,000 users',
         'Social login integration',
@@ -330,7 +330,7 @@ const constants = {
     {
       title: 'Enterprise',
       subtitle: 'Custom-tailored for large organizations',
-      totalPrice: 'Custom',
+      totalPrice: '₹4,999',
       description: [
         'Unlimited users',
         'SSO support',
