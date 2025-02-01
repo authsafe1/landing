@@ -314,7 +314,7 @@ const constants = {
       title: 'Professional',
       subtitle: 'Powerful features for growing teams',
       subheader: 'Recommended',
-      totalPrice: '₹999',
+      totalPrice: '₹799',
       description: [
         'Up to 100,000 users',
         'Social login integration',
@@ -322,7 +322,7 @@ const constants = {
         'Remove AuthSafe branding',
         'Email support with 24-hour response',
       ],
-      buttonText: 'Upgrade to Pro',
+      buttonText: 'Upgrade to Professional',
       buttonVariant: 'contained',
       buttonColor: 'primary',
       redirectUrl: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/billing?plan=professional`,
@@ -330,17 +330,17 @@ const constants = {
     {
       title: 'Enterprise',
       subtitle: 'Custom-tailored for large organizations',
-      totalPrice: 'Custom',
+      totalPrice: '₹4,999',
       description: [
         'Unlimited users',
         'SSO support',
         'Unlimited roles and permissions',
         '24/7 priority support',
       ],
-      buttonText: 'Contact Us',
+      buttonText: 'Upgrade to Enterprise',
       buttonVariant: 'outlined',
       buttonColor: 'primary',
-      redirectUrl: `/contact/sales`,
+      redirectUrl: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/billing?plan=enterprise`,
     },
   ],
   authExamples: {
