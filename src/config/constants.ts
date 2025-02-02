@@ -308,7 +308,7 @@ const constants = {
       buttonText: 'Sign Up for free',
       buttonVariant: 'outlined',
       buttonColor: 'primary',
-      redirectUrl: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/billing?plan=free`,
+      redirectUrl: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/billing`,
     },
     {
       title: 'Professional',
@@ -325,7 +325,7 @@ const constants = {
       buttonText: 'Upgrade to Professional',
       buttonVariant: 'contained',
       buttonColor: 'primary',
-      redirectUrl: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/billing?plan=professional`,
+      redirectUrl: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/billing`,
     },
     {
       title: 'Enterprise',
@@ -340,7 +340,7 @@ const constants = {
       buttonText: 'Upgrade to Enterprise',
       buttonVariant: 'outlined',
       buttonColor: 'primary',
-      redirectUrl: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/billing?plan=enterprise`,
+      redirectUrl: `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/billing`,
     },
   ],
   authExamples: {
