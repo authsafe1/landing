@@ -4,6 +4,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
+import Script from 'next/script';
 import { ReactNode } from 'react';
 
 const roboto = Roboto({
@@ -126,6 +127,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.variable} suppressHydrationWarning>
+        <Script id="clarity-script" strategy="afterInteractive">
+          {`
+        (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "q3mk4a1vmq");
+    `}
+        </Script>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
