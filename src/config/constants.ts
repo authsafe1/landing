@@ -72,7 +72,7 @@ const constants = {
       static: [
         {
           header: 'Docs',
-          url: '/docs',
+          url: 'https://docs.authsafe.in',
           hasDropdown: false,
           EndIcon: null,
         },
@@ -124,7 +124,7 @@ const constants = {
       {
         header: 'Docs',
         Icon: Book,
-        url: '/docs',
+        url: 'https://docs.authsafe.in',
       },
       {
         header: 'Blog',
