@@ -72,7 +72,7 @@ const constants = {
       static: [
         {
           header: 'Docs',
-          url: 'https://docs.authsafe.in',
+          url: `${process.env.NEXT_PUBLIC_API_URL}/docs`,
           hasDropdown: false,
           EndIcon: null,
         },
@@ -124,7 +124,7 @@ const constants = {
       {
         header: 'Docs',
         Icon: Book,
-        url: 'https://docs.authsafe.in',
+        url: `${process.env.NEXT_PUBLIC_API_URL}/docs`,
       },
       {
         header: 'Blog',
