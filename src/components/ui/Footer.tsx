@@ -127,6 +127,13 @@ const Footer: FC = () => {
                 <MuiLink
                   component={Link}
                   color="text.secondary"
+                  href="/policy/terms"
+                >
+                  Terms & Conditions
+                </MuiLink>
+                <MuiLink
+                  component={Link}
+                  color="text.secondary"
                   href="/policy/privacy"
                 >
                   Privacy
@@ -134,16 +141,23 @@ const Footer: FC = () => {
                 <MuiLink
                   component={Link}
                   color="text.secondary"
-                  href="/policy/cookie"
+                  href="/policy/compliance"
                 >
-                  Cookies
+                  Compliance
                 </MuiLink>
                 <MuiLink
                   component={Link}
                   color="text.secondary"
-                  href="/policy/compliance"
+                  href="/policy/shipping"
                 >
-                  Compliance
+                  Shipping
+                </MuiLink>
+                <MuiLink
+                  component={Link}
+                  color="text.secondary"
+                  href="/policy/cancellation"
+                >
+                  Cancellation
                 </MuiLink>
               </Stack>
             </Grid>
