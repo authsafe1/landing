@@ -356,10 +356,10 @@ const Blog = async ({ params }: BlogPageProps) => {
           <Button
             variant="contained"
             LinkComponent={Link}
-            href="/docs"
+            href="/pricing"
             endIcon={<ArrowRight />}
           >
-            Explore Docs
+            Unlock for Free
           </Button>
         </Box>
       </Container>
